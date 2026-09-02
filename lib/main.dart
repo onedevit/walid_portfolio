@@ -12,7 +12,7 @@ class PortfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Walid Hassani - Portfolio',
+      title: 'Walid Hassani - Portfolio & CV',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
@@ -38,76 +38,232 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   final Map<String, Map<String, String>> _translations = {
     'fr': {
       'name': 'WALID HASSANI',
-      'jobTitle': 'Consultant ERP & Chef de Projet Technique',
-      'downloadCv': 'Télécharger mon CV',
-      'expertiseTitle': 'Mon Expertise Hybride',
-      'erpTitle': 'Gestion & ERP',
-      'erpDesc': 'Intégration et paramétrage Dolibarr, gestion commerciale, modules sur-mesure.',
-      'devTitle': 'Développement & IA',
-      'devDesc': 'Flutter, OCR local (Tesseract), intégration d\'API IA pour l\'automatisation.',
-      'projectsTitle': 'Démos & Réalisations Interactives',
-      'project1Title': 'Facturation Intelligente',
-      'project1Desc': 'Application Desktop avec lecture OCR pour l\'extraction automatique de factures.',
-      'project2Title': 'ERP Dolibarr Sur-mesure',
-      'project2Desc': 'Automatisation des flux métiers et extrafields complexes.',
-      'techStackTitle': 'Stack Technique & Technologies Masterisées',
-      'timelineTitle': 'Mon Parcours Professionnel',
-      'contactTitle': 'Travaillons Ensemble',
-      'statsProjects': 'Projets Déployés',
+      'jobTitle': 'Consultant ERP & Intégrateur de Solutions de Gestion\nChef de Projet Technique',
+      'locationMobility': 'Ksar Hellal, Tunisie | Mobilité Internationale : France / Belgique',
+      'downloadCv': 'Télécharger mon CV (PDF)',
+      
+      'profileTitle': 'PROFIL PROFESSIONNEL',
+      'profileText': 'Entrepreneur et Chef de projet technique avec plus de 10 ans d’expérience dans la conception, le déploiement et l’intégration de solutions logicielles d’entreprise. Double compétence rare alliant la maîtrise des processus de gestion/comptabilité à l’ingénierie logicielle appliquée. Expert dans l’automatisation des flux métier, la personnalisation d’ERP (Dolibarr), et l’intégration de technologies avancées (OCR, IA locale, APIs) pour optimiser la productivité des PME.',
+      
+      'skillsTitle': 'COMPÉTENCES CLÉS',
+      'skill1Title': 'Gestion & ERP',
+      'skill1Desc': 'Intégration et paramétrage ERP/CRM (Dolibarr), conformité facturation/fiscalité, gestion commerciale, modules sur-mesure.',
+      'skill2Title': 'Automatisation & IA Appliquée',
+      'skill2Desc': 'Ingénierie de prompts, intégration d’IA en production (APIs, LLMs locaux via llama-server), reconnaissance optique de documents (OCR Tesseract, PaddleOCR).',
+      'skill3Title': 'Conception & Développement',
+      'skill3Desc': 'Logique algorithmique avancée (WinDev, WebDev), développement applicatif assisté par IA (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
+      'skill4Title': 'Infrastructure & Systèmes',
+      'skill4Desc': 'Administration serveurs Linux (Debian, Ubuntu), Windows Server, stratégies de sauvegarde automatisée (rclone, Google Drive), NAS et réseaux locaux.',
+      'skill5Title': 'Gestion de Projet',
+      'skill5Desc': 'Cycle complet (analyse des besoins, cahier des charges, prototypage rapide, déploiement, formation utilisateurs).',
+
+      'experienceTitle': 'EXPÉRIENCES PROFESSIONNELLES',
+      'exp1Role': 'Fondateur & Chef de Projet Technique / Intégrateur ERP',
+      'exp1Company': 'ONEDEV – Ksar Hellal, Tunisie | Janvier 2016 – Présent',
+      'exp1Bullet1': 'Pilotage de bout en bout de projets logiciels de gestion pour un portefeuille de plus de 15 clients PME.',
+      'exp1Bullet2': 'Conception et personnalisation avancée de l’ERP Dolibarr (création de complexes extrafields, automatisation des hooks de facturation et modules métier spécifiques).',
+      'exp1Bullet3': 'Développement de solutions de bureau et mobiles de gestion (facturation intelligente, déclaration fiscale automatisée avec lecture OCR de factures).',
+      'exp1Bullet4': 'Mise en place et administration d’infrastructures serveurs sécurisées (Linux Debian, automatisation de sauvegardes cloud via scripts shell et rclone).',
+      'exp1Bullet5': 'Supervision technique d’équipes de développement et formation de plus de 20 stagiaires et collaborateurs.',
+
+      'exp2Role': 'Co-fondateur & Responsable Technique FAO / Systèmes',
+      'exp2Company': 'PetouHome – Ksar Hellal, Tunisie | Janvier 2022 – Présent',
+      'exp2Bullet1': 'Supervision de la chaîne de production numérique et optimisation des processus de découpe industrielle CNC Laser.',
+      'exp2Bullet2': 'Analyse et conversion de plus de 5 000 fichiers vectoriels et plans techniques (CAD/CAM).',
+      'exp2Bullet3': 'Paramétrage précis des flux machines et mise en place de protocoles de contrôle qualité stricts.',
+
+      'exp3Role': 'Gérant & Coordinateur de Projets Multimédia',
+      'exp3Company': 'S.T.P.T – Ksar Hellal, Tunisie | Juillet 2011 – Novembre 2015',
+      'exp3Bullet1': 'Direction opérationnelle de l’agence et coordination de projets d’applications et de communication numérique.',
+      'exp3Bullet2': 'Gestion des relations clients, cadrage budgétaire et planification des livrables.',
+
+      'projectsTitle': 'PROJETS MARQUANTS INTERACTIFS',
+      'proj1Title': 'Logiciel de Déclaration Fiscale & Traitement Factures (Desktop)',
+      'proj1Desc': 'Application intégrant un moteur OCR local (Tesseract) pour l’extraction automatique de données comptables et l’édition de bilans fiscaux sans dépendance cloud.',
+      'proj1Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+
+      'proj2Title': 'ERP Métier sur-mesure (Dolibarr)',
+      'proj2Desc': 'Déploiement d’une version personnalisée dédiée aux cabinets juridiques et entreprises de services, automatisant la génération de documents légaux et le suivi financier.',
+      'proj2Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+
+      'proj3Title': 'ONEDEV Facture Lite',
+      'proj3Desc': 'Outil de gestion commerciale intégrant des modules intelligents de suggestion et de saisie automatisée, générant un gain de temps de 60% pour les utilisateurs.',
+      'proj3Tech': 'Flutter Mobile/Desktop, Modules IA, SQLite',
+
+      'educationTitle': 'FORMATION & DIPLÔMES',
+      'edu1': 'Licence en Sciences de Gestion (Spécialité Comptabilité) – Université Virtuelle de Tunis (En cours)',
+      'edu2': 'Formation CEFE (Création d\'Entreprises et Formation d\'Entrepreneurs) – ANETI, Tunisie (2010)',
+      'edu3': 'Baccalauréat en Économie et Gestion – Lycée 2 Mars 1934, Ksar Hellal, Tunisie (2005)',
+
+      'langCommitmentTitle': 'LANGUES & ENGAGEMENT',
+      'lang1': 'Français : Courant / Professionnel',
+      'lang2': 'Arabe : Langue maternelle',
+      'lang3': 'Anglais : Technique / Professionnel',
+      'commitment': 'Engagement : Ancien membre actif CONECT (Confédération des Entreprises Citoyennes de Tunisie).',
+
+      'techStackTitle': 'STACK TECHNIQUE & OUTILS',
+      'contactTitle': 'ME CONTACTER',
+      'phone': '(+216) 52 985 659',
+      'email': 'hasseniwalid@gmail.com',
+      'statsProjects': 'Clients PME Actifs',
       'statsSatisfaction': 'Satisfaction Client',
       'statsExperience': 'Ans d\'Expérience',
       'statsAutomation': 'Gain de Temps IA',
-      'viewDetails': 'Cliquer pour voir la démo',
+      'viewDetails': 'Cliquer pour détails & démo',
       'emailCopied': 'Adresse e-mail copiée dans le presse-papiers !',
       'contactMe': 'Me Contacter par E-mail',
     },
     'en': {
       'name': 'WALID HASSANI',
-      'jobTitle': 'ERP Consultant & Technical Project Manager',
-      'downloadCv': 'Download my CV',
-      'expertiseTitle': 'My Hybrid Expertise',
-      'erpTitle': 'Management & ERP',
-      'erpDesc': 'Dolibarr integration & setup, commercial management, custom modules.',
-      'devTitle': 'Development & AI',
-      'devDesc': 'Flutter, local OCR (Tesseract), AI API integration for automation.',
-      'projectsTitle': 'Interactive Demos & Projects',
-      'project1Title': 'Smart Invoicing',
-      'project1Desc': 'Desktop Application with OCR processing for automatic invoice data extraction.',
-      'project2Title': 'Custom Dolibarr ERP',
-      'project2Desc': 'Business workflow automation and complex custom fields.',
-      'techStackTitle': 'Tech Stack & Mastered Technologies',
-      'timelineTitle': 'Professional Career Journey',
-      'contactTitle': 'Let\'s Work Together',
-      'statsProjects': 'Deployed Projects',
+      'jobTitle': 'ERP Consultant & Management Solutions Integrator\nTechnical Project Manager',
+      'locationMobility': 'Ksar Hellal, Tunisia | International Mobility: France / Belgium',
+      'downloadCv': 'Download my CV (PDF)',
+      
+      'profileTitle': 'PROFESSIONAL PROFILE',
+      'profileText': 'Entrepreneur and Technical Project Manager with over 10 years of experience in designing, deploying, and integrating enterprise software solutions. Rare dual competence combining management/accounting expertise with applied software engineering. Expert in business workflow automation, ERP customization (Dolibarr), and integration of advanced technologies (OCR, local AI, APIs) to optimize SME productivity.',
+      
+      'skillsTitle': 'KEY COMPETENCIES',
+      'skill1Title': 'Management & ERP',
+      'skill1Desc': 'Dolibarr ERP/CRM integration and setup, invoicing/tax compliance, commercial management, custom modules.',
+      'skill2Title': 'Automation & Applied AI',
+      'skill2Desc': 'Prompt engineering, production AI integration (APIs, local LLMs via llama-server), optical document recognition (Tesseract OCR, PaddleOCR).',
+      'skill3Title': 'Design & Development',
+      'skill3Desc': 'Advanced algorithmic logic (WinDev, WebDev), AI-assisted software development (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
+      'skill4Title': 'Infrastructure & Systems',
+      'skill4Desc': 'Linux server administration (Debian, Ubuntu), Windows Server, automated backup strategies (rclone, Google Drive), NAS and local networks.',
+      'skill5Title': 'Project Management',
+      'skill5Desc': 'Full lifecycle (needs analysis, specifications, rapid prototyping, deployment, user training).',
+
+      'experienceTitle': 'PROFESSIONAL EXPERIENCE',
+      'exp1Role': 'Founder & Technical Project Manager / ERP Integrator',
+      'exp1Company': 'ONEDEV – Ksar Hellal, Tunisia | January 2016 – Present',
+      'exp1Bullet1': 'End-to-end management of management software projects for over 15 SME clients.',
+      'exp1Bullet2': 'Advanced customization of Dolibarr ERP (extrafields, invoicing hooks, custom business modules).',
+      'exp1Bullet3': 'Development of desktop and mobile management solutions (smart invoicing, automated tax declaration with OCR).',
+      'exp1Bullet4': 'Setup and administration of secure server infrastructures (Linux Debian, automated cloud backups via rclone).',
+      'exp1Bullet5': 'Technical supervision of development teams and training of 20+ trainees and collaborators.',
+
+      'exp2Role': 'Co-founder & Technical Lead CAM / Systems',
+      'exp2Company': 'PetouHome – Ksar Hellal, Tunisia | January 2022 – Present',
+      'exp2Bullet1': 'Digital production line supervision and CNC Laser cutting process optimization.',
+      'exp2Bullet2': 'Analysis and conversion of 5,000+ vector files and CAD/CAM technical drawings.',
+      'exp2Bullet3': 'Precise machine workflow configuration and strict quality control protocols.',
+
+      'exp3Role': 'Manager & Multimedia Project Coordinator',
+      'exp3Company': 'S.T.P.T – Ksar Hellal, Tunisia | July 2011 – November 2015',
+      'exp3Bullet1': 'Operational agency management and coordination of digital communication applications.',
+      'exp3Bullet2': 'Client relations, budget scoping, and deliverable planning.',
+
+      'projectsTitle': 'KEY INTERACTIVE PROJECTS',
+      'proj1Title': 'Tax Declaration & Invoice Processing Desktop Software',
+      'proj1Desc': 'Desktop app with local OCR (Tesseract) for automatic accounting data extraction and tax report generation without cloud dependencies.',
+      'proj1Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+
+      'proj2Title': 'Custom Business ERP (Dolibarr)',
+      'proj2Desc': 'Deployment of a customized version for law firms and service companies, automating legal documents and financial tracking.',
+      'proj2Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+
+      'proj3Title': 'ONEDEV Invoice Lite',
+      'proj3Desc': 'Commercial management tool with intelligent suggestion and automated entry modules, achieving 60% time savings.',
+      'proj3Tech': 'Flutter Mobile/Desktop, AI Modules, SQLite',
+
+      'educationTitle': 'EDUCATION & DIPLOMAS',
+      'edu1': 'Bachelor\'s in Management Sciences (Accounting) – Virtual University of Tunis (In progress)',
+      'edu2': 'CEFE Entrepreneurship Training – ANETI, Tunisia (2010)',
+      'edu3': 'High School Diploma in Economics & Management – Lycée 2 Mars 1934, Ksar Hellal (2005)',
+
+      'langCommitmentTitle': 'LANGUAGES & COMMITMENT',
+      'lang1': 'French: Fluent / Professional',
+      'lang2': 'Arabic: Native',
+      'lang3': 'English: Technical / Professional',
+      'commitment': 'Engagement: Former active member of CONECT (Confederation of Citizen Enterprises of Tunisia).',
+
+      'techStackTitle': 'TECH STACK & TOOLS',
+      'contactTitle': 'CONTACT ME',
+      'phone': '(+216) 52 985 659',
+      'email': 'hasseniwalid@gmail.com',
+      'statsProjects': 'Active SME Clients',
       'statsSatisfaction': 'Client Satisfaction',
       'statsExperience': 'Years Experience',
       'statsAutomation': 'AI Time Saved',
-      'viewDetails': 'Click to view demo',
+      'viewDetails': 'Click for details & demo',
       'emailCopied': 'Email address copied to clipboard!',
       'contactMe': 'Contact Me by Email',
     },
     'ar': {
       'name': 'وليد حساني',
-      'jobTitle': 'مستشار ERP ومدير مشاريع تقني',
-      'downloadCv': 'تحميل السيرة الذاتية',
-      'expertiseTitle': 'خبرتي المزدوجة',
-      'erpTitle': 'الإدارة وأنظمة ERP',
-      'erpDesc': 'تكامل وإعداد Dolibarr، الإدارة التجارية، وتطوير وحدات حسب الطلب.',
-      'devTitle': 'التطوير والذكاء الاصطناعي',
-      'devDesc': 'Flutter، قراءة النصوص OCR محلياً (Tesseract)، وربط واجهات الذكاء الاصطناعي للأتمتة.',
-      'projectsTitle': 'العروض والمشاريع التفاعلية',
-      'project1Title': 'الفوترة الذكية',
-      'project1Desc': 'تطبيق مكتبي مع تقنية OCR لاستخراج بيانات الفواتير تلقائياً.',
-      'project2Title': 'نظام ERP Dolibarr مخصص',
-      'project2Desc': 'أتمتة مسارات العمل والحقول المخصصة المعقدة.',
+      'jobTitle': 'مستشار ERP ومكامل حلول التصرف الإداري\nمدير مشاريع تقني',
+      'locationMobility': 'قصر هلال، تونس | التنقل الدولي : فرنسا / بلجيكا',
+      'downloadCv': 'تحميل السيرة الذاتية (PDF)',
+      
+      'profileTitle': 'الملف الشخصي والمهني',
+      'profileText': 'رائد أعمال ومدير مشاريع تقني بخبرة تتجاوز 10 سنوات في تصميم وتطوير وتكامل الحلول البرمجية للمؤسسات. كفاءة مزدوجة تجمع بين إتقان عمليات الإدارة والمحاسبة والمهندسة البرمجية التطبيقية. خبير في أتمتة مسارات العمل وتخصيص أنظمة ERP (Dolibarr) وتكامل التقنيات المتقدمة (OCR، الذكاء الاصطناعي المحلي، APIs) لرفع إنتاجية الشركات.',
+      
+      'skillsTitle': 'المهارات الرئيسية',
+      'skill1Title': 'الإدارة وأنظمة ERP',
+      'skill1Desc': 'تكامل وإعداد ERP/CRM (Dolibarr)، مطابقة الفوترة والجباية، الإدارة التجارية، وحدات مخصصة.',
+      'skill2Title': 'الأتمتة والذكاء الاصطناعي التطبيقي',
+      'skill2Desc': 'هندسة الأوامر (Prompts)، ربط الذكاء الاصطناعي في الإنتاج (APIs، نماذج LLMs محلية عبر llama-server)، التعرف الضوئي على المحارف (OCR Tesseract, PaddleOCR).',
+      'skill3Title': 'التصميم والتطوير',
+      'skill3Desc': 'المنطق الخوارزمي المتقدم (WinDev, WebDev)، تطوير التطبيقات المدعوم بالذكاء الاصطناعي (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
+      'skill4Title': 'البنية التحتية والأنظمة',
+      'skill4Desc': 'إدارة خوادم Linux (Debian, Ubuntu)، Windows Server، استراتيجيات النسخ الاحتياطي التلقائي (rclone, Google Drive)، NAS والشبكات المحلية.',
+      'skill5Title': 'إدارة المشاريع',
+      'skill5Desc': 'الدورة الكاملة للمشروع (تحليل الاحتياجات، كراس الشروط، النمذجة السريعة، النشر، وتدريب المستخدمين).',
+
+      'experienceTitle': 'الخبرات المهنية',
+      'exp1Role': 'مؤسس ومدير مشاريع تقني / مكامل أنظمة ERP',
+      'exp1Company': 'ONEDEV – قصر هلال، تونس | يناير 2016 – الحالي',
+      'exp1Bullet1': 'قيادة كاملة لمشاريع البرمجيات الإدارية لمجموعة تضم أكثر من 15 شركة PME.',
+      'exp1Bullet2': 'التصميم والتخصيص المتقدم لنظام ERP Dolibarr (إنشاء extrafields معقدة، أتمتة خطافات الفوترة والوحدات الخاصة).',
+      'exp1Bullet3': 'تطوير حلول مكتيبة وجوالة للإدارة (الفوترة الذكية، التصريح الجبائي الآلي بقراءة OCR للفواتير).',
+      'exp1Bullet4': 'إعداد وإدارة بنية خوادم مؤمنة (Linux Debian، أتمتة النسخ الاحتياطي السحابي عبر rclone).',
+      'exp1Bullet5': 'الإشراف التقني على فرق التطوير وتدريب أكثر من 20 متدرباً ومشاركاً.',
+
+      'exp2Role': 'شريك مؤسس والمسؤول التقني FAO / الأنظمة',
+      'exp2Company': 'PetouHome – قصر هلال، تونس | يناير 2022 – الحالي',
+      'exp2Bullet1': 'الإشراف على خط الإنتاج الرقمي وأتمتة عمليات القطع الصناعي CNC Laser.',
+      'exp2Bullet2': 'تحليل وتحويل أكثر من 5000 ملف متجه ومخطط تقني (CAD/CAM).',
+      'exp2Bullet3': 'الضبط الدقيق لمسارات الآلات وتطبيق بروتوكولات صارمة لمراقبة الجودة.',
+
+      'exp3Role': 'مدير ومربك مشاريع الوسائط المتعددة',
+      'exp3Company': 'S.T.P.T – قصر هلال، تونس | يوليو 2011 – نوفمبر 2015',
+      'exp3Bullet1': 'الإدارة التشغيلية للوكالة وتنسيق مشاريع التطبيقات والتواصل الرقمي.',
+      'exp3Bullet2': 'إدارة العلاقات مع العملاء والضبط المالي والتخطيط للمخرجات.',
+
+      'projectsTitle': 'المشاريع البارزة التفاعلية',
+      'proj1Title': 'برنامج التصريح الجبائي ومعالجة الفواتير (Desktop)',
+      'proj1Desc': 'تطبيق يدمج محرك OCR محلي (Tesseract) للاستخراج الآلي للبيانات المحاسبية وإعداد القوائم المالية بدون اعتماد سحابي.',
+      'proj1Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+
+      'proj2Title': 'نظام ERP Dolibarr مخصص للمهن',
+      'proj2Desc': 'نشر نسخة مخصصة لمكاتب المحاماة والشركات الخدمية، تمتتة إنشاء الوثائق القانونية والمتابعة المالية.',
+      'proj2Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+
+      'proj3Title': 'ONEDEV Facture Lite',
+      'proj3Desc': 'أداة إدارة تجارية مع وحدات اقتراح وإدخال آلي ذكية، توفر 60% من وقت المستخدمين.',
+      'proj3Tech': 'Flutter Mobile/Desktop, Modules IA, SQLite',
+
+      'educationTitle': 'التعليم والشهادات',
+      'edu1': 'إجازة في علوم التصرف (اختصاص محاسبة) – الجامعة الافتراضية بتونس (قيد الدراسة)',
+      'edu2': 'تدريب CEFE (تكوين بعث المؤسسات وتدريب الباعثين) – ANETI، تونس (2010)',
+      'edu3': 'شهادة البكالوريا في الاقتصاد والتصرف – معهد 2 مارس 1934 بقصر هلال (2005)',
+
+      'langCommitmentTitle': 'اللغات والنشاط الاجتماعي',
+      'lang1': 'الفرنسية : طليق / مهني',
+      'lang2': 'العربية : اللغة الأم',
+      'lang3': 'الإنجلتيزية : تقني / مهني',
+      'commitment': 'النشاط : عضو نشيط سابق في CONECT (كونفدرالية المؤسسات المواطنة التونسية).',
+
       'techStackTitle': 'التقنيات والأدوات المعتمدة',
-      'timelineTitle': 'المسار المهني',
-      'contactTitle': 'لنعمل معاً',
-      'statsProjects': 'مشروع مكتمل',
+      'contactTitle': 'التواصل المباشر',
+      'phone': '(+216) 52 985 659',
+      'email': 'hasseniwalid@gmail.com',
+      'statsProjects': 'شركة PME نشطة',
       'statsSatisfaction': 'رضا العملاء',
       'statsExperience': 'سنوات خبرة',
       'statsAutomation': 'توفير الوقت بالذكاء الاصطناعي',
-      'viewDetails': 'أنقر لمشاهدة العرض',
+      'viewDetails': 'أنقر لمشاهدة التفاصيل',
       'emailCopied': 'تم نسخ البريد الإلكتروني بنجاح!',
       'contactMe': 'التواصل عبر البريد',
     },
@@ -180,7 +336,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               ),
             ],
@@ -191,12 +347,12 @@ class _PortfolioHomeState extends State<PortfolioHome> {
             children: [
               Text(
                 desc,
-                style: const TextStyle(fontSize: 15, height: 1.4),
+                style: const TextStyle(fontSize: 14, height: 1.4),
               ),
               const SizedBox(height: 15),
               const Text(
-                'Technologies:',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                'Technologies & Stack:',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               ),
               const SizedBox(height: 5),
               Container(
@@ -207,7 +363,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
                 child: Text(
                   techStack,
-                  style: TextStyle(color: Colors.blueGrey.shade800, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: Colors.blueGrey.shade800, fontWeight: FontWeight.w600, fontSize: 13),
                 ),
               ),
             ],
@@ -241,7 +397,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // 1. Section Héro (Présentation)
+              // 1. Section Héro (Présentation principale)
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(vertical: isMobile ? 40 : 60, horizontal: horizontalPadding),
@@ -271,7 +427,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                     ),
                     const SizedBox(height: 20),
 
-                    // --- Section Vidéo de Profil Circulaire ---
+                    // --- Section Vidéo de Profil Circulaire avec Aura Lumineuse ---
                     GestureDetector(
                       onTap: () async {
                         if (!_videoController.value.isInitialized) return;
@@ -289,9 +445,13 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.blueGrey.shade800,
-                          border: Border.all(color: Colors.white, width: 4),
-                          boxShadow: const [
-                            BoxShadow(color: Colors.black26, blurRadius: 15)
+                          border: Border.all(color: Colors.tealAccent, width: 4),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.teal.withValues(alpha: 0.4),
+                              blurRadius: 25,
+                              spreadRadius: 2,
+                            )
                           ],
                         ),
                         child: ClipOval(
@@ -403,7 +563,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                     Text(
                       t['name']!,
                       style: TextStyle(
-                          fontSize: isMobile ? 30 : 40,
+                          fontSize: isMobile ? 30 : 42,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                       textAlign: TextAlign.center,
@@ -414,17 +574,34 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                       style: TextStyle(
                           fontSize: isMobile ? 16 : 20,
                           color: Colors.white70,
-                          letterSpacing: 1.2),
+                          height: 1.3,
+                          letterSpacing: 1.1),
                       textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.location_on, color: Colors.tealAccent, size: 18),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            t['locationMobility']!,
+                            style: const TextStyle(color: Colors.white60, fontSize: 13),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 30),
                     ElevatedButton.icon(
                       onPressed: () {
-                        // Action pour télécharger le CV ou ouvrir un رابط
+                        // Action pour télécharger le CV ou ouvrir un lien
                       },
                       icon: const Icon(Icons.download),
                       label: Text(t['downloadCv']!),
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.teal,
                         padding: EdgeInsets.symmetric(
                             horizontal: isMobile ? 20 : 30, vertical: 15),
                         textStyle: TextStyle(fontSize: isMobile ? 15 : 18),
@@ -434,7 +611,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
               ),
 
-              // 2. Bannière de Statistiques & Métriques d'Impact (Section Clé)
+              // 2. Bannière de Statistiques & Métriques d'Impact
               Container(
                 width: double.infinity,
                 color: Colors.blueGrey.shade800,
@@ -444,42 +621,95 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                   spacing: 20,
                   runSpacing: 20,
                   children: [
-                    _buildStatCard('15+', t['statsProjects']!, Icons.check_circle_outline),
-                    _buildStatCard('100%', t['statsSatisfaction']!, Icons.sentiment_very_satisfied),
-                    _buildStatCard('5+', t['statsExperience']!, Icons.work_outline),
-                    _buildStatCard('80%', t['statsAutomation']!, Icons.bolt),
+                    _buildStatCard('15+', t['statsProjects']!, Icons.business),
+                    _buildStatCard('100%', t['statsSatisfaction']!, Icons.verified),
+                    _buildStatCard('10+', t['statsExperience']!, Icons.work_history),
+                    _buildStatCard('60%', t['statsAutomation']!, Icons.auto_graph),
                   ],
                 ),
               ),
 
-              // 3. Section Expertise (Compétences)
+              // 3. Section Profil Professionnel (Résumé du CV)
               Padding(
-                padding: EdgeInsets.all(horizontalPadding),
+                padding: EdgeInsets.symmetric(vertical: 40, horizontal: horizontalPadding),
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 900),
+                  padding: const EdgeInsets.all(25),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 10)],
+                    border: Border.all(color: Colors.blueGrey.shade100),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.person_pin, color: Colors.blueGrey, size: 28),
+                          const SizedBox(width: 10),
+                          Text(
+                            t['profileTitle']!,
+                            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        t['profileText']!,
+                        style: const TextStyle(fontSize: 15, height: 1.6, color: Colors.black87),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // 4. Section Compétences Clés (5 Pôles d'Expertise Animés)
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: horizontalPadding),
                 child: Column(
                   children: [
                     Text(
-                      t['expertiseTitle']!,
+                      t['skillsTitle']!,
                       style: TextStyle(
                           fontSize: isMobile ? 22 : 28, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 30),
                     Wrap(
-                      spacing: 30,
-                      runSpacing: 30,
+                      spacing: 25,
+                      runSpacing: 25,
                       alignment: WrapAlignment.center,
                       children: [
-                        _buildExpertiseCard(
-                          t['erpTitle']!,
-                          t['erpDesc']!,
-                          Icons.business_center,
-                          screenWidth,
+                        _HoverCard(
+                          title: t['skill1Title']!,
+                          desc: t['skill1Desc']!,
+                          icon: Icons.business_center,
+                          badge: '95%',
                         ),
-                        _buildExpertiseCard(
-                          t['devTitle']!,
-                          t['devDesc']!,
-                          Icons.code,
-                          screenWidth,
+                        _HoverCard(
+                          title: t['skill2Title']!,
+                          desc: t['skill2Desc']!,
+                          icon: Icons.psychology,
+                          badge: '92%',
+                        ),
+                        _HoverCard(
+                          title: t['skill3Title']!,
+                          desc: t['skill3Desc']!,
+                          icon: Icons.code,
+                          badge: '90%',
+                        ),
+                        _HoverCard(
+                          title: t['skill4Title']!,
+                          desc: t['skill4Desc']!,
+                          icon: Icons.dns,
+                          badge: '88%',
+                        ),
+                        _HoverCard(
+                          title: t['skill5Title']!,
+                          desc: t['skill5Desc']!,
+                          icon: Icons.account_tree,
+                          badge: '95%',
                         ),
                       ],
                     ),
@@ -487,7 +717,65 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
               ),
 
-              // 4. Section Stack Technique (Badges de Technologies)
+              // 5. Section Expériences Professionnelles (Chronologie Interactive Animée)
+              Container(
+                width: double.infinity,
+                color: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 40, horizontal: horizontalPadding),
+                child: Column(
+                  children: [
+                    Text(
+                      t['experienceTitle']!,
+                      style: TextStyle(fontSize: isMobile ? 22 : 28, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      constraints: const BoxConstraints(maxWidth: 900),
+                      child: Column(
+                        children: [
+                          _ExperienceCard(
+                            role: t['exp1Role']!,
+                            company: t['exp1Company']!,
+                            bulletList: [
+                              t['exp1Bullet1']!,
+                              t['exp1Bullet2']!,
+                              t['exp1Bullet3']!,
+                              t['exp1Bullet4']!,
+                              t['exp1Bullet5']!,
+                            ],
+                            tags: const ['Dolibarr ERP', 'OCR Tesseract', 'Linux Debian', 'rclone', 'Flutter'],
+                            icon: Icons.business_center,
+                          ),
+                          _ExperienceCard(
+                            role: t['exp2Role']!,
+                            company: t['exp2Company']!,
+                            bulletList: [
+                              t['exp2Bullet1']!,
+                              t['exp2Bullet2']!,
+                              t['exp2Bullet3']!,
+                            ],
+                            tags: const ['CNC Laser', 'CAD/CAM', 'Fichiers Vectoriels', 'Qualité Industrial'],
+                            icon: Icons.precision_manufacturing,
+                          ),
+                          _ExperienceCard(
+                            role: t['exp3Role']!,
+                            company: t['exp3Company']!,
+                            bulletList: [
+                              t['exp3Bullet1']!,
+                              t['exp3Bullet2']!,
+                            ],
+                            tags: const ['Gestion Agence', 'Projets Multimédia', 'Cadrage Budgétaire'],
+                            icon: Icons.work_history,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // 6. Section Stack Technique (Badges)
               Container(
                 width: double.infinity,
                 color: Colors.blueGrey.shade50,
@@ -506,24 +794,24 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                       alignment: WrapAlignment.center,
                       children: [
                         _buildTechChip('Dolibarr ERP', Colors.blue),
-                        _buildTechChip('Flutter & Dart', Colors.lightBlue),
-                        _buildTechChip('OCR Local (Tesseract)', Colors.teal),
-                        _buildTechChip('Intégration API IA', Colors.deepPurple),
-                        _buildTechChip('Python & Scripts', Colors.amber.shade800),
-                        _buildTechChip('PostgreSQL & SQL', Colors.indigo),
-                        _buildTechChip('REST APIs & Webhooks', Colors.green),
-                        _buildTechChip('Docker & Cloud', Colors.blueGrey),
+                        _buildTechChip('Flutter Desktop & Mobile', Colors.lightBlue),
+                        _buildTechChip('OCR (Tesseract & PaddleOCR)', Colors.teal),
+                        _buildTechChip('LLMs Locaux (llama-server)', Colors.deepPurple),
+                        _buildTechChip('WinDev & WebDev', Colors.indigo),
+                        _buildTechChip('PHP & JavaScript', Colors.amber.shade800),
+                        _buildTechChip('Linux Debian / Ubuntu', Colors.orange.shade800),
+                        _buildTechChip('Sauvegardes (rclone)', Colors.green),
                       ],
                     ),
                   ],
                 ),
               ),
 
-              // 5. Section Projets (Démos & Réalisations)
+              // 7. Section Projets Marquants
               Container(
                 width: double.infinity,
                 color: Colors.white,
-                padding: EdgeInsets.all(horizontalPadding),
+                padding: EdgeInsets.symmetric(vertical: 40, horizontal: horizontalPadding),
                 child: Column(
                   children: [
                     Text(
@@ -540,17 +828,25 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                       children: [
                         _buildProjectCard(
                           context,
-                          t['project1Title']!,
-                          t['project1Desc']!,
-                          'Flutter Desktop, Tesseract OCR, Python Backend',
+                          t['proj1Title']!,
+                          t['proj1Desc']!,
+                          t['proj1Tech']!,
                           t['viewDetails']!,
                           screenWidth,
                         ),
                         _buildProjectCard(
                           context,
-                          t['project2Title']!,
-                          t['project2Desc']!,
-                          'Dolibarr PHP/SQL, Extrafields, REST API',
+                          t['proj2Title']!,
+                          t['proj2Desc']!,
+                          t['proj2Tech']!,
+                          t['viewDetails']!,
+                          screenWidth,
+                        ),
+                        _buildProjectCard(
+                          context,
+                          t['proj3Title']!,
+                          t['proj3Desc']!,
+                          t['proj3Tech']!,
                           t['viewDetails']!,
                           screenWidth,
                         ),
@@ -560,7 +856,83 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
               ),
 
-              // 6. Section Appel à l'Action & Contact
+              // 8. Section Formation, Diplômes & Engagement
+              Container(
+                width: double.infinity,
+                color: Colors.blueGrey.shade50,
+                padding: EdgeInsets.symmetric(vertical: 40, horizontal: horizontalPadding),
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 900),
+                  child: Wrap(
+                    spacing: 30,
+                    runSpacing: 30,
+                    alignment: WrapAlignment.spaceAround,
+                    children: [
+                      // Block Formation
+                      Container(
+                        width: isMobile ? screenWidth : 400,
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 8)],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.school, color: Colors.blueGrey),
+                                const SizedBox(width: 10),
+                                Text(t['educationTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            Text('• ${t['edu1']!}', style: const TextStyle(fontSize: 13, height: 1.4)),
+                            const SizedBox(height: 8),
+                            Text('• ${t['edu2']!}', style: const TextStyle(fontSize: 13, height: 1.4)),
+                            const SizedBox(height: 8),
+                            Text('• ${t['edu3']!}', style: const TextStyle(fontSize: 13, height: 1.4)),
+                          ],
+                        ),
+                      ),
+
+                      // Block Langues & Engagement
+                      Container(
+                        width: isMobile ? screenWidth : 400,
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 8)],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.language, color: Colors.blueGrey),
+                                const SizedBox(width: 10),
+                                Text(t['langCommitmentTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            Text('• ${t['lang1']!}', style: const TextStyle(fontSize: 13)),
+                            const SizedBox(height: 6),
+                            Text('• ${t['lang2']!}', style: const TextStyle(fontSize: 13)),
+                            const SizedBox(height: 6),
+                            Text('• ${t['lang3']!}', style: const TextStyle(fontSize: 13)),
+                            const SizedBox(height: 12),
+                            Text('• ${t['commitment']!}', style: const TextStyle(fontSize: 13, height: 1.4, fontWeight: FontWeight.w500)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // 9. Section Appel à l'Action & Contact
               Container(
                 width: double.infinity,
                 color: Colors.blueGrey.shade900,
@@ -574,30 +946,48 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 15),
-                    const Text(
-                      'walid.hassani@example.com',
-                      style: TextStyle(fontSize: 18, color: Colors.white70),
+                    Text(
+                      '${t['email']!}  |  ${t['phone']!}',
+                      style: const TextStyle(fontSize: 16, color: Colors.white70),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 25),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        Clipboard.setData(const ClipboardData(text: 'walid.hassani@example.com'));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(t['emailCopied']!),
-                            behavior: SnackBarBehavior.floating,
+                    Wrap(
+                      spacing: 15,
+                      runSpacing: 15,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            Clipboard.setData(ClipboardData(text: t['email']!));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(t['emailCopied']!),
+                                behavior: SnackBarBehavior.floating,
+                                backgroundColor: Colors.teal,
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.copy),
+                          label: Text(t['contactMe']!),
+                          style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.teal,
+                            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                            textStyle: TextStyle(fontSize: isMobile ? 14 : 16),
                           ),
-                        );
-                      },
-                      icon: const Icon(Icons.copy),
-                      label: Text(t['contactMe']!),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal,
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                        textStyle: TextStyle(fontSize: isMobile ? 14 : 16),
-                      ),
+                        ),
+                        OutlinedButton.icon(
+                          onPressed: () {
+                            // Action pour ouvrir LinkedIn
+                          },
+                          icon: const Icon(Icons.link, color: Colors.white),
+                          label: const Text('LinkedIn', style: TextStyle(color: Colors.white)),
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(color: Colors.white54),
+                            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -651,35 +1041,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     );
   }
 
-  // Card d'expertise responsive
-  Widget _buildExpertiseCard(String title, String desc, IconData icon, double screenWidth) {
-    double cardWidth = screenWidth < 380 ? (screenWidth - 32) : 300.0;
-    return Container(
-      width: cardWidth,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 10)],
-      ),
-      child: Column(
-        children: [
-          Icon(icon, size: 50, color: Colors.blueGrey),
-          const SizedBox(height: 15),
-          Text(title,
-              textAlign: TextAlign.center,
-              style:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 10),
-          Text(desc,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.grey)),
-        ],
-      ),
-    );
-  }
-
-  // Card de projet interactive responsive
+  // Card de projet interactive responsive avec animation au survol
   Widget _buildProjectCard(
       BuildContext context, String title, String desc, String tech, String btnText, double screenWidth) {
     double cardWidth = screenWidth < 400 ? (screenWidth - 32) : 350.0;
@@ -705,17 +1067,17 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 Expanded(
                   child: Text(title,
                       style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold)),
+                          fontSize: 16, fontWeight: FontWeight.bold)),
                 ),
-                const Icon(Icons.open_in_new, size: 20, color: Colors.blueGrey),
+                const Icon(Icons.open_in_new, size: 18, color: Colors.blueGrey),
               ],
             ),
             const SizedBox(height: 10),
             Expanded(
               child: Text(
                 desc,
-                style: const TextStyle(fontSize: 14, color: Colors.black87),
-                maxLines: 3,
+                style: const TextStyle(fontSize: 13, color: Colors.black87, height: 1.4),
+                maxLines: 4,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -728,10 +1090,262 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                   btnText,
                   style: const TextStyle(
                       color: Colors.teal,
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold),
                 ),
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Widget d'expérience professionnelle interactif avec effet de survol (Hover Animation)
+class _ExperienceCard extends StatefulWidget {
+  final String role;
+  final String company;
+  final List<String> bulletList;
+  final List<String> tags;
+  final IconData icon;
+
+  const _ExperienceCard({
+    Key? key,
+    required this.role,
+    required this.company,
+    required this.bulletList,
+    required this.tags,
+    required this.icon,
+  }) : super(key: key);
+
+  @override
+  State<_ExperienceCard> createState() => _ExperienceCardState();
+}
+
+class _ExperienceCardState extends State<_ExperienceCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeOut,
+        margin: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.all(24),
+        transform: _isHovered
+            ? Matrix4.translationValues(0, -6, 0)
+            : Matrix4.identity(),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: _isHovered ? Colors.teal : Colors.blueGrey.shade100,
+            width: _isHovered ? 2 : 1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: _isHovered
+                  ? Colors.teal.withValues(alpha: 0.18)
+                  : Colors.black.withValues(alpha: 0.05),
+              blurRadius: _isHovered ? 20 : 10,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: _isHovered ? Colors.teal : Colors.blueGrey.shade800,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(widget.icon, color: Colors.white, size: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.role,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        widget.company,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.blueGrey.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 18),
+            ...widget.bulletList.map(
+              (bullet) => Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.arrow_right_rounded,
+                        color: Colors.teal, size: 22),
+                    const SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        bullet,
+                        style: const TextStyle(
+                            fontSize: 14, height: 1.45, color: Colors.black87),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (widget.tags.isNotEmpty) ...[
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: widget.tags
+                    .map(
+                      (tag) => Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.teal.shade50,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.teal.shade200),
+                        ),
+                        child: Text(
+                          tag,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.teal.shade800,
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Widget de carte de compétence avec effet de survol (Hover Animation & Badge)
+class _HoverCard extends StatefulWidget {
+  final String title;
+  final String desc;
+  final IconData icon;
+  final String badge;
+
+  const _HoverCard({
+    Key? key,
+    required this.title,
+    required this.desc,
+    required this.icon,
+    required this.badge,
+  }) : super(key: key);
+
+  @override
+  State<_HoverCard> createState() => _HoverCardState();
+}
+
+class _HoverCardState extends State<_HoverCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardWidth = screenWidth < 380 ? (screenWidth - 32) : 280.0;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeOut,
+        width: cardWidth,
+        padding: const EdgeInsets.all(22),
+        transform: _isHovered
+            ? Matrix4.translationValues(0, -6, 0)
+            : Matrix4.identity(),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: _isHovered ? Colors.teal : Colors.blueGrey.shade100,
+            width: _isHovered ? 2 : 1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: _isHovered
+                  ? Colors.teal.withValues(alpha: 0.18)
+                  : Colors.black.withValues(alpha: 0.05),
+              blurRadius: _isHovered ? 20 : 10,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  widget.icon,
+                  size: 42,
+                  color: _isHovered ? Colors.teal : Colors.blueGrey,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: _isHovered ? Colors.teal : Colors.blueGrey.shade100,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    widget.badge,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: _isHovered ? Colors.white : Colors.blueGrey.shade800,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              widget.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.desc,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.grey, fontSize: 13, height: 1.45),
             ),
           ],
         ),
