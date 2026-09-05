@@ -17,6 +17,7 @@ class PortfolioApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         fontFamily: 'Roboto',
+        fontFamilyFallback: const ['Cairo', 'Arial', 'sans-serif'],
       ),
       home: const PortfolioHome(),
     );
