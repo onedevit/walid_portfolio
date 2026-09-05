@@ -1,3 +1,4 @@
+// ignore: avoid_web_libraries_in_flutter, deprecated_member_use
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +9,7 @@ void main() {
 }
 
 class PortfolioApp extends StatelessWidget {
-  const PortfolioApp({Key? key}) : super(key: key);
+  const PortfolioApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class PortfolioApp extends StatelessWidget {
 }
 
 class PortfolioHome extends StatefulWidget {
-  const PortfolioHome({Key? key}) : super(key: key);
+  const PortfolioHome({super.key});
 
   @override
   State<PortfolioHome> createState() => _PortfolioHomeState();
@@ -300,7 +301,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   // Action de téléchargement du CV PDF correspondant à la langue sélectionnée
   void _downloadCv(BuildContext context) {
     final String lang = _currentLanguage; // 'fr', 'en', 'ar'
-    final String pdfUrl = 'assets/assets/cv_$lang.pdf';
+    final String pdfUrl = 'cv_$lang.pdf'; // URL directe depuis la racine du serveur web (Vercel)
 
     try {
       html.AnchorElement(href: pdfUrl)
@@ -1137,13 +1138,12 @@ class _ExperienceCard extends StatefulWidget {
   final IconData icon;
 
   const _ExperienceCard({
-    Key? key,
     required this.role,
     required this.company,
     required this.bulletList,
     required this.tags,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   State<_ExperienceCard> createState() => _ExperienceCardState();
@@ -1287,12 +1287,11 @@ class _HoverCard extends StatefulWidget {
   final String badge;
 
   const _HoverCard({
-    Key? key,
     required this.title,
     required this.desc,
     required this.icon,
     required this.badge,
-  }) : super(key: key);
+  });
 
   @override
   State<_HoverCard> createState() => _HoverCardState();
