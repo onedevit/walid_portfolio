@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
@@ -294,6 +295,29 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   void dispose() {
     _videoController.dispose();
     super.dispose();
+  }
+
+  // Action de téléchargement du CV PDF correspondant à la langue sélectionnée
+  void _downloadCv(BuildContext context) {
+    final String lang = _currentLanguage; // 'fr', 'en', 'ar'
+    final String pdfUrl = 'assets/assets/cv_$lang.pdf';
+
+    try {
+      html.AnchorElement(href: pdfUrl)
+        ..target = '_blank'
+        ..setAttribute('download', 'Walid_Hassani_CV_${lang.toUpperCase()}.pdf')
+        ..click();
+    } catch (e) {
+      debugPrint("Erreur lors du téléchargement du CV: $e");
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Téléchargement du CV (${lang.toUpperCase()})...'),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.teal,
+      ),
+    );
   }
 
   // Widget pour le bouton de sélection de langue
@@ -596,16 +620,17 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                     ),
                     const SizedBox(height: 30),
                     ElevatedButton.icon(
-                      onPressed: () {
-                        // Action pour télécharger le CV ou ouvrir un lien
-                      },
-                      icon: const Icon(Icons.download),
+                      onPressed: () => _downloadCv(context),
+                      icon: const Icon(Icons.download, color: Colors.white),
                       label: Text(t['downloadCv']!),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.teal,
+                        foregroundColor: Colors.white, // Couleur du texte et icône en blanc très lisible
                         padding: EdgeInsets.symmetric(
                             horizontal: isMobile ? 20 : 30, vertical: 15),
-                        textStyle: TextStyle(fontSize: isMobile ? 15 : 18),
+                        textStyle: TextStyle(
+                            fontSize: isMobile ? 15 : 18,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
