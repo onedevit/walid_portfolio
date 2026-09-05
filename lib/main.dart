@@ -193,7 +193,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'contactMe': 'Contact Me by Email',
     },
     'ar': {
-      'name': 'وليد حساني',
+      'name': 'وليد الحساني',
       'jobTitle': 'مستشار ERP ومكامل حلول التصرف الإداري\nمدير مشاريع تقني',
       'locationMobility': 'قصر هلال، تونس | التنقل الدولي : فرنسا / بلجيكا',
       'downloadCv': 'تحميل السيرة الذاتية (PDF)',
