@@ -1,11 +1,11 @@
 {
-    "name": "walid_portfolio",
-    "short_name": "walid_portfolio",
+    "name": "Walid Hassani - Portfolio",
+    "short_name": "Walid Hassani",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Walid Portfolio.",
+    "background_color": "#0F172A",
+    "theme_color": "#14B8A6",
+    "description": "Walid Hassani - Consultant ERP & Chef de Projet Technique.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
