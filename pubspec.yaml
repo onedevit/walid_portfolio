@@ -23,7 +23,7 @@ dependencies:
   video_player: ^2.8.2
   
   # Icônes officielles (LinkedIn, GitHub, etc.)
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter: ^11.0.0
 
 # Dépendances de développement (tests et linter)
 dev_dependencies:
