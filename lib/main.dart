@@ -294,6 +294,10 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     },
   };
 
+  // ===========================================================================
+  // ====================== GESTION DU MÉDIA (VIDÉO/IMAGE) =====================
+  // ===========================================================================
+
   @override
   void initState() {
     super.initState();
@@ -338,7 +342,11 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     super.dispose();
   }
 
-  // Action de téléchargement du CV PDF correspondant à la langue sélectionnée
+  // ===========================================================================
+  // ============================== ACTIONS UTILISATEUR ========================
+  // ===========================================================================
+
+  // Télécharger le CV PDF correspondant à la langue sélectionnée
   void _downloadCv(BuildContext context) {
     final String lang = _currentLanguage; // 'fr', 'en', 'ar'
     final String pdfUrl = 'cv_$lang.pdf'; // URL directe depuis la racine du serveur web (Vercel)
@@ -361,7 +369,11 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     );
   }
 
-  // Widget pour le bouton de sélection de langue
+  // ===========================================================================
+  // ============================== WIDGETS D'INTERFACE ========================
+  // ===========================================================================
+
+  // Construire un bouton de sélection de langue
   Widget _buildLanguageBtn(String label, String langCode) {
     bool isSelected = _currentLanguage == langCode;
     return InkWell(
@@ -391,7 +403,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     );
   }
 
-  // Boîte de dialogue pour afficher la démo interactive du projet
+  // Afficher la boîte de dialogue des détails du projet (Modal)
   void _showProjectModal(BuildContext context, String title, String desc, String techStack) {
     showDialog(
       context: context,
