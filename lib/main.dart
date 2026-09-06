@@ -3,6 +3,7 @@ import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const PortfolioApp());
@@ -1076,7 +1077,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                               debugPrint("Erreur lors de l'ouverture de LinkedIn: $e");
                             }
                           },
-                          icon: const Icon(Icons.link, color: Colors.white),
+                          icon: const FaIcon(FontAwesomeIcons.linkedinIn, color: Colors.white, size: 20),
                           label: const Text('LinkedIn', style: TextStyle(color: Colors.white)),
                           style: OutlinedButton.styleFrom(
                             side: const BorderSide(color: Colors.white54),
@@ -1091,7 +1092,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                               debugPrint("Erreur lors de l'ouverture de GitHub: $e");
                             }
                           },
-                          icon: const Icon(Icons.code, color: Colors.white),
+                          icon: const FaIcon(FontAwesomeIcons.github, color: Colors.white, size: 20),
                           label: const Text('GitHub', style: TextStyle(color: Colors.white)),
                           style: OutlinedButton.styleFrom(
                             side: const BorderSide(color: Colors.white54),
