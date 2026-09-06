@@ -1070,10 +1070,29 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                         ),
                         OutlinedButton.icon(
                           onPressed: () {
-                            // Action pour ouvrir LinkedIn
+                            try {
+                              html.window.open('https://www.linkedin.com/in/walidhassani', '_blank');
+                            } catch (e) {
+                              debugPrint("Erreur lors de l'ouverture de LinkedIn: $e");
+                            }
                           },
                           icon: const Icon(Icons.link, color: Colors.white),
                           label: const Text('LinkedIn', style: TextStyle(color: Colors.white)),
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(color: Colors.white54),
+                            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                          ),
+                        ),
+                        OutlinedButton.icon(
+                          onPressed: () {
+                            try {
+                              html.window.open('https://github.com/onedevit', '_blank');
+                            } catch (e) {
+                              debugPrint("Erreur lors de l'ouverture de GitHub: $e");
+                            }
+                          },
+                          icon: const Icon(Icons.code, color: Colors.white),
+                          label: const Text('GitHub', style: TextStyle(color: Colors.white)),
                           style: OutlinedButton.styleFrom(
                             side: const BorderSide(color: Colors.white54),
                             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
