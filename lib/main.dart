@@ -33,8 +33,11 @@ class PortfolioHome extends StatefulWidget {
   State<PortfolioHome> createState() => _PortfolioHomeState();
 }
 
+enum MediaState { loading, videoReady, imageFallback }
+
 class _PortfolioHomeState extends State<PortfolioHome> {
-  late VideoPlayerController _videoController;
+  VideoPlayerController? _videoController;
+  MediaState _mediaState = MediaState.loading;
   String _currentLanguage = 'fr'; // 'fr' par défaut, 'en', 'ar'
 
   // Dictionnaire complet de traductions pour le support multilingue
@@ -293,26 +296,44 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   @override
   void initState() {
     super.initState();
-    _videoController = VideoPlayerController.asset('assets/pitch_video_fr.webm')
-      ..addListener(() {
-        if (mounted) setState(() {});
-      })
-      ..setVolume(0.0) // Initialisation en mode muet pour permettre le chargement sur navigateur Web (Chrome)
-      ..setLooping(true)
-      ..initialize().then((_) {
-        if (mounted) {
-          _videoController.play().catchError((e) {
-            debugPrint("Autoplay empêché par le navigateur: $e");
-          });
-        }
-      }).catchError((error) {
-        debugPrint("Erreur lors de l'initialisation de la vidéo: $error");
-      });
+    _loadMedia(_currentLanguage);
+  }
+
+  void _loadMedia(String lang) {
+    setState(() {
+      _mediaState = MediaState.loading;
+    });
+
+    _videoController?.dispose();
+    _videoController = VideoPlayerController.asset('assets/pitch_video_$lang.webm');
+
+    _videoController!.initialize().then((_) {
+      if (mounted) {
+        setState(() {
+          _mediaState = MediaState.videoReady;
+        });
+        _videoController!.setVolume(0.0); // Mode muet par défaut
+        _videoController!.setLooping(true);
+        _videoController!.addListener(() {
+          if (mounted) setState(() {});
+        });
+        _videoController!.play().catchError((e) {
+          debugPrint("Autoplay empêché par le navigateur: $e");
+        });
+      }
+    }).catchError((error) {
+      debugPrint("Vidéo non trouvée pour $lang, fallback vers image. Erreur: $error");
+      if (mounted) {
+        setState(() {
+          _mediaState = MediaState.imageFallback;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
-    _videoController.dispose();
+    _videoController?.dispose();
     super.dispose();
   }
 
@@ -344,9 +365,12 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     bool isSelected = _currentLanguage == langCode;
     return InkWell(
       onTap: () {
-        setState(() {
-          _currentLanguage = langCode;
-        });
+        if (_currentLanguage != langCode) {
+          setState(() {
+            _currentLanguage = langCode;
+          });
+          _loadMedia(langCode);
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -471,15 +495,15 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                     ),
                     const SizedBox(height: 20),
 
-                    // --- Section Vidéo de Profil Circulaire avec Aura Lumineuse ---
+                    // --- Section Média de Profil Circulaire (Vidéo ou Image) ---
                     GestureDetector(
                       onTap: () async {
-                        if (!_videoController.value.isInitialized) return;
+                        if (_mediaState != MediaState.videoReady || _videoController == null) return;
                         setState(() {
-                          if (_videoController.value.isPlaying) {
-                            _videoController.pause();
+                          if (_videoController!.value.isPlaying) {
+                            _videoController!.pause();
                           } else {
-                            _videoController.play();
+                            _videoController!.play();
                           }
                         });
                       },
@@ -499,107 +523,114 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                           ],
                         ),
                         child: ClipOval(
-                          child: _videoController.value.isInitialized
-                              ? Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: videoSize,
-                                      height: videoSize,
-                                      child: FittedBox(
-                                        fit: BoxFit.cover,
-                                        child: SizedBox(
-                                          width: _videoController.value.size.width,
-                                          height: _videoController.value.size.height,
-                                          child: VideoPlayer(_videoController),
-                                        ),
-                                      ),
-                                    ),
-
-                                    // Superposition sombre avec icône Play au centre lorsque la vidéo est en pause
-                                    if (!_videoController.value.isPlaying)
-                                      Container(
-                                        color: Colors.black45,
-                                        child: const Center(
-                                          child: Icon(
-                                            Icons.play_arrow,
-                                            size: 70,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-
-                                    // Barre de contrôle flottante au bas de la vidéo (Play/Pause & Son)
-                                    Positioned(
-                                      bottom: 20,
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 8),
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xA6000000),
-                                          borderRadius: BorderRadius.circular(20),
-                                          border: Border.all(
-                                              color: Colors.white38, width: 1),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            // Bouton de Lecture / Pause
-                                            GestureDetector(
-                                              onTap: () {
-                                                setState(() {
-                                                  if (_videoController.value.isPlaying) {
-                                                    _videoController.pause();
-                                                  } else {
-                                                    _videoController.play();
-                                                  }
-                                                });
-                                              },
-                                              child: Icon(
-                                                _videoController.value.isPlaying
-                                                    ? Icons.pause
-                                                    : Icons.play_arrow,
-                                                color: Colors.white,
-                                                size: 22,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 12),
-                                            Container(
-                                              height: 16,
-                                              width: 1,
-                                              color: Colors.white38,
-                                            ),
-                                            const SizedBox(width: 12),
-                                            // Bouton d'activation ou coupure du son (Icône uniquement)
-                                            GestureDetector(
-                                              onTap: () async {
-                                                if (_videoController.value.volume == 0.0) {
-                                                  await _videoController.setVolume(1.0);
-                                                  await _videoController.play();
-                                                } else {
-                                                  await _videoController.setVolume(0.0);
-                                                }
-                                                if (mounted) setState(() {});
-                                              },
-                                              child: Icon(
-                                                _videoController.value.volume == 0.0
-                                                    ? Icons.volume_off
-                                                    : Icons.volume_up,
-                                                color: Colors.white,
-                                                size: 22,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : const Center(
+                          child: _mediaState == MediaState.loading
+                              ? const Center(
                                   child: CircularProgressIndicator(
                                     color: Colors.white,
                                   ),
-                                ),
+                                )
+                              : _mediaState == MediaState.imageFallback
+                                  ? Image.asset(
+                                      'assets/profile.jpg',
+                                      fit: BoxFit.cover,
+                                      width: videoSize,
+                                      height: videoSize,
+                                    )
+                                  : Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        SizedBox(
+                                          width: videoSize,
+                                          height: videoSize,
+                                          child: FittedBox(
+                                            fit: BoxFit.cover,
+                                            child: SizedBox(
+                                              width: _videoController!.value.size.width,
+                                              height: _videoController!.value.size.height,
+                                              child: VideoPlayer(_videoController!),
+                                            ),
+                                          ),
+                                        ),
+
+                                        // Superposition sombre avec icône Play au centre lorsque la vidéo est en pause
+                                        if (!_videoController!.value.isPlaying)
+                                          Container(
+                                            color: Colors.black45,
+                                            child: const Center(
+                                              child: Icon(
+                                                Icons.play_arrow,
+                                                size: 70,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+
+                                        // Barre de contrôle flottante au bas de la vidéo (Play/Pause & Son)
+                                        Positioned(
+                                          bottom: 20,
+                                          child: Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 8),
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xA6000000),
+                                              borderRadius: BorderRadius.circular(20),
+                                              border: Border.all(
+                                                  color: Colors.white38, width: 1),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                // Bouton de Lecture / Pause
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      if (_videoController!.value.isPlaying) {
+                                                        _videoController!.pause();
+                                                      } else {
+                                                        _videoController!.play();
+                                                      }
+                                                    });
+                                                  },
+                                                  child: Icon(
+                                                    _videoController!.value.isPlaying
+                                                        ? Icons.pause
+                                                        : Icons.play_arrow,
+                                                    color: Colors.white,
+                                                    size: 22,
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 12),
+                                                Container(
+                                                  height: 16,
+                                                  width: 1,
+                                                  color: Colors.white38,
+                                                ),
+                                                const SizedBox(width: 12),
+                                                // Bouton d'activation ou coupure du son (Icône uniquement)
+                                                GestureDetector(
+                                                  onTap: () async {
+                                                    if (_videoController!.value.volume == 0.0) {
+                                                      await _videoController!.setVolume(1.0);
+                                                      await _videoController!.play();
+                                                    } else {
+                                                      await _videoController!.setVolume(0.0);
+                                                    }
+                                                    if (mounted) setState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    _videoController!.value.volume == 0.0
+                                                        ? Icons.volume_off
+                                                        : Icons.volume_up,
+                                                    color: Colors.white,
+                                                    size: 22,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                         ),
                       ),
                     ),
