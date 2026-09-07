@@ -1,7 +1,7 @@
 # Portfolio Professionnel & CV Interactif - Walid Hassani
 
 [![Flutter Web](https://img.shields.io/badge/Flutter-Web-blue?logo=flutter)](https://flutter.dev)
-[![Licence](https://img.shields.io/badge/Licence-Priv%C3%A9e-red)](#)
+![Licence](https://img.shields.io/badge/Licence-Priv%C3%A9e-red)
 [![Statut du Déploiement](https://img.shields.io/badge/D%C3%A9ploiement-Vercel-success?logo=vercel)](https://walid-portfolio-blue.vercel.app)
 
 Application Web moderne et réactive développée avec **Flutter Web**, présentant le parcours professionnel, les compétences clés et les projets marquants de **Walid Hassani** (Consultant ERP Dolibarr & Chef de Projet Technique).
