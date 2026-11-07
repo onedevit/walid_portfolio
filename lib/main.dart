@@ -53,19 +53,46 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'profileTitle': 'PROFIL PROFESSIONNEL',
       'profileText': 'Entrepreneur et Chef de projet technique avec plus de 10 ans d’expérience dans la conception, le déploiement et l’intégration de solutions logicielles d’entreprise. Double compétence rare alliant la maîtrise des processus de gestion/comptabilité à l’ingénierie logicielle appliquée. Expert dans l’automatisation des flux métier, la personnalisation d’ERP (Dolibarr), le développement e-commerce WordPress & WooCommerce (plugins sur-mesure), et l’intégration de technologies avancées (OCR, IA locale, APIs) pour optimiser la productivité des PME.',
       
-      'skillsTitle': 'COMPÉTENCES CLÉS',
-      'skill1Title': 'Gestion & ERP',
-      'skill1Desc': 'Intégration et paramétrage ERP/CRM (Dolibarr), conformité facturation/fiscalité, gestion commerciale, modules sur-mesure.',
-      'skill2Title': 'Automatisation & IA Appliquée',
-      'skill2Desc': 'Ingénierie de prompts, intégration d’IA en production (APIs, LLMs locaux via llama-server), reconnaissance optique de documents (OCR Tesseract, PaddleOCR).',
-      'skill3Title': 'WordPress & WooCommerce',
-      'skill3Desc': 'Développement e-commerce, création et personnalisation de plugins WordPress/WooCommerce sur-mesure, passerelles de paiement et synchronisation de données.',
-      'skill4Title': 'Conception & Développement',
-      'skill4Desc': 'Logique algorithmique avancée (WinDev, WebDev), développement applicatif assisté par IA (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
-      'skill5Title': 'Infrastructure & Systèmes',
-      'skill5Desc': 'Administration serveurs Linux (Debian, Ubuntu), Windows Server, stratégies de sauvegarde automatisée (rclone, Google Drive), NAS et réseaux locaux.',
-      'skill6Title': 'Gestion de Projet',
-      'skill6Desc': 'Cycle complet (analyse des besoins, cahier des charges, prototypage rapide, déploiement, formation utilisateurs).',
+      'skillsTitle': 'PÔLES D’EXPERTISE & COMPÉTENCES ÉLITES',
+      'skill1Title': 'IA d\'Entreprise & LLMs Locaux',
+      'skill1Desc': 'Déploiement et intégration sécurisée de modèles LLM locaux (llama.cpp, Ollama, vLLM) sur infrastructure privée. Zéro fuite de données, inférence GPU/CPU optimisée avec RAG sur-mesure.',
+      'skill1Tags': 'LLMs Locaux, RAG, Ollama / vLLM, Zero Data Leak',
+
+      'skill2Title': 'Document AI & OCR Intelligent',
+      'skill2Desc': 'Pipelines d\'extraction automatisée haute précision pour factures et pièces comptables (PaddleOCR, Tesseract, LayoutLM). Structuration JSON instantanée pour ERP.',
+      'skill2Tags': 'PaddleOCR, Tesseract, Vision AI, Data Extraction',
+
+      'skill3Title': 'Edge ML & Intelligence Embarquée',
+      'skill3Desc': 'Optimisation et intégration de modèles d\'inférence légers (TensorFlow Lite, ONNX Runtime) sur architectures Desktop et Mobile sans dépendance réseau.',
+      'skill3Tags': 'TFLite, ONNX Runtime, Edge Inference, Offline AI',
+
+      'skill4Title': 'Architecture Multiplateforme Haute Performance',
+      'skill4Desc': 'Ingénierie logicielle Flutter & Dart unifiée (Desktop Windows/Linux, Mobile iOS/Android, WebAssembly). Clean Architecture, state management et 60 FPS constants.',
+      'skill4Tags': 'Flutter / Dart, WebAssembly, Clean Architecture, 60 FPS',
+
+      'skill5Title': 'Systèmes Autonomes Offline-First',
+      'skill5Desc': 'Conception d\'applications métier résilientes avec bases embarquées (SQLite, Drift) et synchronisation bidirectionnelle intelligente sans conflit vers le Cloud.',
+      'skill5Tags': 'SQLite / Drift, Offline-First, Bidirectional Sync, Zero Downtime',
+
+      'skill6Title': 'Automatisation IA & Workflows Agents',
+      'skill6Desc': 'Orchestration de processus complexes via agents autonomes, function calling structuré, webhooks événementiels et connecteurs d\'APIs métier.',
+      'skill6Tags': 'Agentic AI, Tool Calling, Workflows, Webhooks',
+
+      'skill7Title': 'ERP d\'Entreprise & Modules API (Dolibarr)',
+      'skill7Desc': 'Expertise avancée en personnalisation du Core Dolibarr, développement de modules métier PHP/SQL, interconnexion REST API et conformité légale/fiscale pour PME.',
+      'skill7Tags': 'Dolibarr Core, REST API, Modules PHP/SQL, Conformité Fiscale',
+
+      'skill8Title': 'Architecture SaaS & Traitement Asynchrone',
+      'skill8Desc': 'Conception de plateformes multi-tenants avec gestion de files d\'attente (Queues), envois massifs multi-canaux (WhatsApp, SMS, Email) et haute scalabilité.',
+      'skill8Tags': 'Multi-Tenant, Queue Processing, Scalable APIs, Omnichannel',
+
+      'skill9Title': 'Solutions FinTech & Legal-Tech',
+      'skill9Desc': 'Moteurs de calcul financier et juridique réglementaires, génération dynamique de PDF certifiés et mise en place de pistes d\'audit infalsifiables.',
+      'skill9Tags': 'Algorithmes Juridiques, Moteur de Calcul, Génération PDF, Audit Trail',
+
+      'skill10Title': 'Sécurité Applicative & Architecture Zero-Trust',
+      'skill10Desc': 'Audit de vulnérabilités, durcissement des en-têtes HTTP (CSP, HSTS), contrôle d\'accès strict (RBAC/ABAC) et chiffrement de bout en bout des flux de données.',
+      'skill10Tags': 'Zero-Trust, CSP / OWASP, RBAC, Data Encryption',
 
       'experienceTitle': 'EXPÉRIENCES PROFESSIONNELLES',
       'exp1Role': 'Fondateur & Chef de Projet Technique / Intégrateur ERP & Web',
@@ -173,19 +200,46 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'profileTitle': 'PROFESSIONAL PROFILE',
       'profileText': 'Entrepreneur and Technical Project Manager with over 10 years of experience in designing, deploying, and integrating enterprise software solutions. Possesses a rare dual competence combining management and accounting expertise with applied software engineering. Expert in business workflow automation, ERP customization (Dolibarr), e-commerce development (custom WordPress & WooCommerce plugins), and advanced technology integration (OCR, local AI, APIs) to optimize SME productivity.',
       
-      'skillsTitle': 'CORE COMPETENCIES',
-      'skill1Title': 'Management & ERP',
-      'skill1Desc': 'Dolibarr ERP/CRM integration and setup, invoicing and tax compliance, commercial management, custom modules.',
-      'skill2Title': 'Automation & Applied AI',
-      'skill2Desc': 'Prompt engineering, production AI integration (APIs, local LLMs via llama-server), optical document recognition (Tesseract OCR, PaddleOCR).',
-      'skill3Title': 'WordPress & WooCommerce',
-      'skill3Desc': 'E-commerce development, creation and customization of bespoke WordPress/WooCommerce plugins, payment gateways, and data synchronization.',
-      'skill4Title': 'Design & Development',
-      'skill4Desc': 'Advanced algorithmic logic (WinDev, WebDev), AI-assisted application development (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
-      'skill5Title': 'Infrastructure & Systems',
-      'skill5Desc': 'Linux server administration (Debian, Ubuntu), Windows Server, automated backup strategies (rclone, Google Drive), NAS, and local networks.',
-      'skill6Title': 'Project Management',
-      'skill6Desc': 'Full lifecycle management (needs analysis, technical specifications, rapid prototyping, deployment, user training).',
+      'skillsTitle': 'CORE DOMAINS & ELITE EXPERTISE',
+      'skill1Title': 'Enterprise AI & On-Premise LLMs',
+      'skill1Desc': 'Secure deployment and integration of local LLM models (llama.cpp, Ollama, vLLM) on private infrastructure. Zero data leak, GPU/CPU inference with custom RAG pipelines.',
+      'skill1Tags': 'Local LLMs, RAG Pipelines, Ollama / vLLM, Zero Data Leak',
+
+      'skill2Title': 'Document AI & Intelligent OCR',
+      'skill2Desc': 'High-accuracy optical extraction pipelines for invoices, balance sheets, and tax receipts (PaddleOCR, Tesseract, LayoutLM). Instant JSON serialization for ERP systems.',
+      'skill2Tags': 'PaddleOCR, Tesseract, Vision AI, JSON Extraction',
+
+      'skill3Title': 'Edge ML & Embedded Intelligence',
+      'skill3Desc': 'Optimization and deployment of lightweight inference models (TensorFlow Lite, ONNX Runtime) on desktop and mobile platforms with zero cloud latency.',
+      'skill3Tags': 'TFLite, ONNX Runtime, Edge Inference, Offline AI',
+
+      'skill4Title': 'High-Performance Cross-Platform Architecture',
+      'skill4Desc': 'Unified Flutter & Dart software engineering (Windows/Linux Desktop, iOS/Android Mobile, WebAssembly). Clean Architecture, state management, and constant 60 FPS.',
+      'skill4Tags': 'Flutter / Dart, WebAssembly, Clean Architecture, 60 FPS',
+
+      'skill5Title': 'Offline-First Enterprise Systems',
+      'skill5Desc': 'Resilient business app design with embedded databases (SQLite, Drift) and automated conflict-free bidirectional synchronization with the cloud.',
+      'skill5Tags': 'SQLite / Drift, Offline-First, Bidirectional Sync, Zero Downtime',
+
+      'skill6Title': 'AI Automation & Agentic Workflows',
+      'skill6Desc': 'Enterprise process automation through autonomous agents, structured function calling, intelligent event webhooks, and complex third-party API orchestration.',
+      'skill6Tags': 'Agentic AI, Tool Calling, Workflows, Webhooks',
+
+      'skill7Title': 'Enterprise ERP & Custom APIs (Dolibarr)',
+      'skill7Desc': 'Deep expertise in Dolibarr ERP/CRM customization, core module development, secure REST API integrations, and statutory accounting/tax compliance.',
+      'skill7Tags': 'Dolibarr Core, REST API, PHP/SQL Modules, Tax Compliance',
+
+      'skill8Title': 'Cloud SaaS Architecture & Queue Processing',
+      'skill8Desc': 'Multi-tenant platform engineering featuring resilient queue workers, high-throughput asynchronous notifications (WhatsApp, SMS, Email), and robust scalability.',
+      'skill8Tags': 'Multi-Tenant, Queue Processing, Scalable APIs, Omnichannel',
+
+      'skill9Title': 'FinTech & Legal-Tech Solutions',
+      'skill9Desc': 'Regulatory compensation calculation engines, automated statutory reports, tamper-evident PDF document synthesis, and comprehensive legal audit trails.',
+      'skill9Tags': 'Legal Algorithms, Calculation Engine, PDF Synthesis, Audit Trail',
+
+      'skill10Title': 'Application Security & Zero-Trust Architecture',
+      'skill10Desc': 'Security hardening, rigorous HTTP headers (CSP, HSTS), zero-trust backend authorization, strict RBAC/ABAC access control, and end-to-end data encryption.',
+      'skill10Tags': 'Zero-Trust, CSP / OWASP, RBAC, Data Encryption',
 
       'experienceTitle': 'PROFESSIONAL EXPERIENCE',
       'exp1Role': 'Founder, Technical Project Manager & ERP/Web Integrator',
@@ -293,19 +347,46 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'profileTitle': 'الملف الشخصي والمهني',
       'profileText': 'رائد أعمال ومدير مشاريع تقني بخبرة تتجاوز 10 سنوات في تصميم، نشر، ودمج الحلول البرمجية للمؤسسات. أمتلك كفاءة مزدوجة ونادرة تجمع بين إتقان عمليات الإدارة والمحاسبة، وهندسة البرمجيات التطبيقية. خبير في أتمتة مسارات العمل، تخصيص أنظمة ERP (Dolibarr)، تطوير المتاجر الإلكترونية وبرمجة إضافات ووردبريس وووكمرس المخصصة، بالإضافة إلى دمج التقنيات المتقدمة (التعرف الضوئي على الحروف OCR، الذكاء الاصطناعي المحلي، وواجهات برمجة التطبيقات APIs) لتحسين إنتاجية الشركات الصغرى والمتوسطة.',
       
-      'skillsTitle': 'الكفاءات الأساسية',
-      'skill1Title': 'الإدارة وأنظمة ERP',
-      'skill1Desc': 'إعداد ودمج نظام ERP/CRM (Dolibarr)، مطابقة الفوترة والجباية، الإدارة التجارية، وتطوير وحدات مخصصة.',
-      'skill2Title': 'الأتمتة والذكاء الاصطناعي التطبيقي',
-      'skill2Desc': 'هندسة الأوامر (Prompt Engineering)، دمج الذكاء الاصطناعي في بيئة الإنتاج (APIs، ونماذج لغوية محلية LLMs عبر llama-server)، والتعرف الضوئي على المستندات (OCR Tesseract, PaddleOCR).',
-      'skill3Title': 'ووردبريس وووكمرس',
-      'skill3Desc': 'تطوير المتاجر الإلكترونية، إنشاء وتخصيص إضافات ووردبريس وووكمرس (Plugins)، دمج بوابات الدفع الإلكتروني، ومزامنة البيانات.',
-      'skill4Title': 'التصميم والتطوير',
-      'skill4Desc': 'المنطق الخوارزمي المتقدم (WinDev, WebDev)، وتطوير التطبيقات بمساعدة الذكاء الاصطناعي (Flutter Desktop/Mobile, Dart, PHP, JavaScript).',
-      'skill5Title': 'البنية التحتية والأنظمة',
-      'skill5Desc': 'إدارة خوادم Linux (Debian, Ubuntu)، Windows Server، استراتيجيات النسخ الاحتياطي التلقائي (rclone, Google Drive)، الخوادم التخزينية NAS، والشبكات المحلية.',
-      'skill6Title': 'إدارة المشاريع',
-      'skill6Desc': 'الدورة الكاملة للمشروع (تحليل الاحتياجات، كراس الشروط، النمذجة السريعة، النشر، وتدريب المستخدمين).',
+      'skillsTitle': 'مجالات الخبرة والكفاءات النخبوية',
+      'skill1Title': 'الذكاء الاصطناعي المؤسساتي والنماذج المحلية',
+      'skill1Desc': 'نشر ودمج آمن للنماذج اللغوية الضخمة محلياً (llama.cpp, Ollama, vLLM) على بنية تحتية خاصة. حماية تامة للبيانات من التسريب، واستدلال فائق السرعة مع أنظمة RAG المتطورة.',
+      'skill1Tags': 'نماذج محلية, RAG, Ollama / vLLM, حماية تامة للبيانات',
+
+      'skill2Title': 'الرؤية الحاسوبية واستخراج الوثائق الذكي',
+      'skill2Desc': 'مسارات مؤتمتة عالية الدقة لقراءة ومعالجة الفواتير والقوائم المالية (PaddleOCR, Tesseract, LayoutLM)، وتحويلها فورياً لبيانات JSON منظمة لأنظمة ERP.',
+      'skill2Tags': 'PaddleOCR, Tesseract, Vision AI, استخراج البيانات',
+
+      'skill3Title': 'التعلم الآلي على الحافة والأجهزة الذكية',
+      'skill3Desc': 'تحسين وتشغيل نماذج الذكاء الاصطناعي الخفيفة (TensorFlow Lite, ONNX Runtime) مباشرة على الحواسيب والهواتف دون الحاجة لاتصال بالإنترنت.',
+      'skill3Tags': 'TFLite, ONNX Runtime, استدلال محلي, ذكاء اصطناعي دون إنترنت',
+
+      'skill4Title': 'هندسة التطبيقات الموحدة عالية الأداء',
+      'skill4Desc': 'تطوير برمجيات موحدة بتقنيات Flutter & Dart لكافة المنصات (سطح المكتب، الهواتف، وويب WebAssembly) وفق معايير Clean Architecture وسلاسة 60 إطاراً بالثانية.',
+      'skill4Tags': 'Flutter / Dart, WebAssembly, Clean Architecture, أداء 60 FPS',
+
+      'skill5Title': 'الأنظمة المستقلة وقواعد البيانات المدمجة',
+      'skill5Desc': 'تصميم حلول مؤسساتية مرنة تعمل بكفاءة تامة دون إنترنت بالاعتماد على قواعد (SQLite, Drift) مع مزامنة ذكية فور توفر الاتصال السحابي.',
+      'skill5Tags': 'SQLite / Drift, Offline-First, مزامنة ذكية, استمرارية تامة',
+
+      'skill6Title': 'أتمتة العمليات ووكلاء الذكاء الاصطناعي',
+      'skill6Desc': 'بناء وتنسيق مسارات العمل المعقدة باستخدام الوكلاء المستقلين (Autonomous Agents)، استدعاء الأدوات البرمجية (Function Calling)، وأتمتة الـ Webhooks.',
+      'skill6Tags': 'وكلاء أذكياء, Function Calling, أتمتة متقدمة, Webhooks',
+
+      'skill7Title': 'تكامل أنظمة الـ ERP والحلول المركزية (Dolibarr)',
+      'skill7Desc': 'خبرة عميقة في تخصيص نظام Dolibarr، تطوير الإضافات البرمجية PHP/SQL، الربط الآمن عبر واجهات REST API، ومطابقة النظم الجبائية والتجارية.',
+      'skill7Tags': 'نواة Dolibarr, واجهات REST API, إضافات برمجية, المطابقة الجبائية',
+
+      'skill8Title': 'هندسة منصات الـ SaaS والمهام المتزامنة',
+      'skill8Desc': 'بناء منصات سحابية متعددة المستأجرين (Multi-Tenant) مع إدارة طوابير المعالجة (Queues) للبث الفوري للرسائل متعددة القنوات وقابلية التوسع الضخم.',
+      'skill8Tags': 'Multi-Tenant, معالجة الطوابير, واجهات متوسعة, قنوات متعددة',
+
+      'skill9Title': 'الحلول القانونية والمالية الرقمية',
+      'skill9Desc': 'تطوير محركات دقيقة لحساب التعويضات والضرائب وفق القوانين الرسمية، توليد التقارير الموثقة PDF، وتوفير سجلات تدقيق غير قابلة للتلاعب.',
+      'skill9Tags': 'خوارزميات قانونية, محرك حسابي, توليد PDF, سجلات تدقيق',
+
+      'skill10Title': 'الأمان السيبراني للويب وانعدام الثقة',
+      'skill10Desc': 'تحصين التطبيقات ضد الثغرات، تفعيل ترويسات الأمان المشددة (CSP, HSTS)، تطبيق مبدأ انعدام الثقة والتحكم الصارم بالصلاحيات (RBAC)، وتشفير البيانات الحساسة.',
+      'skill10Tags': 'انعدام الثقة Zero-Trust, تحصين CSP, إدارة الصلاحيات RBAC, تشفير شامل',
 
       'experienceTitle': 'الخبرات المهنية',
       'exp1Role': 'مؤسس ومدير مشاريع تقني / مُدمج أنظمة ERP والويب',
@@ -864,7 +945,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 ),
               ),
 
-              // 4. Section Compétences Clés (6 Pôles d'Expertise Animés)
+              // 4. Section Pôles d'Expertise & Compétences Élites (10 Pôles Animés)
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: horizontalPadding),
                 child: Column(
@@ -875,47 +956,105 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                           fontSize: isMobile ? 22 : 28, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
+                    const SizedBox(height: 10),
+                    Text(
+                      _currentLanguage == 'ar'
+                          ? 'خبرات تقنية متقدمة تجمع بين الذكاء الاصطناعي المؤسساتي وهندسة النظم البرمجية المعقدة'
+                          : _currentLanguage == 'en'
+                              ? 'High-impact technical capabilities combining Enterprise AI with mission-critical systems engineering'
+                              : 'Compétences de pointe alliant IA générative & locale et ingénierie de systèmes critiques',
+                      style: TextStyle(
+                        fontSize: isMobile ? 13 : 15,
+                        color: Colors.blueGrey.shade600,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                     const SizedBox(height: 30),
                     Wrap(
-                      spacing: 25,
-                      runSpacing: 25,
+                      spacing: 24,
+                      runSpacing: 24,
                       alignment: WrapAlignment.center,
                       children: [
                         _HoverCard(
                           title: t['skill1Title']!,
                           desc: t['skill1Desc']!,
-                          icon: Icons.business_center,
-                          badge: '95%',
+                          tags: t['skill1Tags']!.split(', '),
+                          icon: Icons.psychology,
+                          badge: '96%',
+                          gradientColors: const [Color(0xFF00BFA5), Color(0xFF00E5FF)],
                         ),
                         _HoverCard(
                           title: t['skill2Title']!,
                           desc: t['skill2Desc']!,
-                          icon: Icons.psychology,
-                          badge: '92%',
+                          tags: t['skill2Tags']!.split(', '),
+                          icon: Icons.document_scanner,
+                          badge: '98%',
+                          gradientColors: const [Color(0xFF6366F1), Color(0xFF8B5CF6)],
                         ),
                         _HoverCard(
                           title: t['skill3Title']!,
                           desc: t['skill3Desc']!,
-                          icon: Icons.shopping_cart_checkout,
-                          badge: '95%',
+                          tags: t['skill3Tags']!.split(', '),
+                          icon: Icons.memory,
+                          badge: '94%',
+                          gradientColors: const [Color(0xFF0EA5E9), Color(0xFF38BDF8)],
                         ),
                         _HoverCard(
                           title: t['skill4Title']!,
                           desc: t['skill4Desc']!,
-                          icon: Icons.code,
-                          badge: '90%',
+                          tags: t['skill4Tags']!.split(', '),
+                          icon: Icons.devices,
+                          badge: '97%',
+                          gradientColors: const [Color(0xFF0284C7), Color(0xFF06B6D4)],
                         ),
                         _HoverCard(
                           title: t['skill5Title']!,
                           desc: t['skill5Desc']!,
-                          icon: Icons.dns,
-                          badge: '88%',
+                          tags: t['skill5Tags']!.split(', '),
+                          icon: Icons.cloud_sync,
+                          badge: '96%',
+                          gradientColors: const [Color(0xFF10B981), Color(0xFF34D399)],
                         ),
                         _HoverCard(
                           title: t['skill6Title']!,
                           desc: t['skill6Desc']!,
-                          icon: Icons.account_tree,
+                          tags: t['skill6Tags']!.split(', '),
+                          icon: Icons.auto_awesome,
                           badge: '95%',
+                          gradientColors: const [Color(0xFFF59E0B), Color(0xFFFBBF24)],
+                        ),
+                        _HoverCard(
+                          title: t['skill7Title']!,
+                          desc: t['skill7Desc']!,
+                          tags: t['skill7Tags']!.split(', '),
+                          icon: Icons.business_center,
+                          badge: '98%',
+                          gradientColors: const [Color(0xFF2563EB), Color(0xFF3B82F6)],
+                        ),
+                        _HoverCard(
+                          title: t['skill8Title']!,
+                          desc: t['skill8Desc']!,
+                          tags: t['skill8Tags']!.split(', '),
+                          icon: Icons.cloud_queue,
+                          badge: '93%',
+                          gradientColors: const [Color(0xFF8B5CF6), Color(0xFFA855F7)],
+                        ),
+                        _HoverCard(
+                          title: t['skill9Title']!,
+                          desc: t['skill9Desc']!,
+                          tags: t['skill9Tags']!.split(', '),
+                          icon: Icons.gavel,
+                          badge: '95%',
+                          gradientColors: const [Color(0xFFD97706), Color(0xFFF59E0B)],
+                        ),
+                        _HoverCard(
+                          title: t['skill10Title']!,
+                          desc: t['skill10Desc']!,
+                          tags: t['skill10Tags']!.split(', '),
+                          icon: Icons.security,
+                          badge: '92%',
+                          gradientColors: const [Color(0xFF059669), Color(0xFF10B981)],
                         ),
                       ],
                     ),
@@ -1483,100 +1622,286 @@ class _ExperienceCardState extends State<_ExperienceCard> {
   }
 }
 
-// Widget de carte de compétence avec effet de survol (Hover Animation & Badge)
+// Widget de carte de compétence avec animations futuristes éblouissantes (Neon Hover, Progress Bar & Tags)
 class _HoverCard extends StatefulWidget {
   final String title;
   final String desc;
+  final List<String> tags;
   final IconData icon;
   final String badge;
+  final List<Color> gradientColors;
 
   const _HoverCard({
     required this.title,
     required this.desc,
+    required this.tags,
     required this.icon,
     required this.badge,
+    required this.gradientColors,
   });
 
   @override
   State<_HoverCard> createState() => _HoverCardState();
 }
 
-class _HoverCardState extends State<_HoverCard> {
+class _HoverCardState extends State<_HoverCard> with SingleTickerProviderStateMixin {
   bool _isHovered = false;
+  late final AnimationController _animController;
+  late final Animation<double> _scaleAnimation;
+  late final Animation<double> _glowAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 260),
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.028).animate(
+      CurvedAnimation(parent: _animController, curve: Curves.easeOutCubic),
+    );
+    _glowAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animController, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = screenWidth < 380 ? (screenWidth - 32) : 280.0;
+    double cardWidth = screenWidth < 380
+        ? (screenWidth - 32)
+        : screenWidth < 740
+            ? (screenWidth - 48)
+            : 340.0;
+
+    double percent = (double.tryParse(widget.badge.replaceAll('%', '').trim()) ?? 90.0) / 100.0;
+    Color primaryColor = widget.gradientColors.first;
+    Color secondaryColor = widget.gradientColors.last;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        curve: Curves.easeOut,
-        width: cardWidth,
-        padding: const EdgeInsets.all(22),
-        transform: _isHovered
-            ? Matrix4.translationValues(0, -6, 0)
-            : Matrix4.identity(),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: _isHovered ? Colors.teal : Colors.blueGrey.shade100,
-            width: _isHovered ? 2 : 1,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: _isHovered
-                  ? Colors.teal.withValues(alpha: 0.18)
-                  : Colors.black.withValues(alpha: 0.05),
-              blurRadius: _isHovered ? 20 : 10,
-              offset: const Offset(0, 6),
+      onEnter: (_) {
+        setState(() => _isHovered = true);
+        _animController.forward();
+      },
+      onExit: (_) {
+        setState(() => _isHovered = false);
+        _animController.reverse();
+      },
+      child: AnimatedBuilder(
+        animation: _animController,
+        builder: (context, child) {
+          return Transform.translate(
+            offset: Offset(0, -7 * _glowAnimation.value),
+            child: Transform.scale(
+              scale: _scaleAnimation.value,
+              child: child,
             ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  widget.icon,
-                  size: 42,
-                  color: _isHovered ? Colors.teal : Colors.blueGrey,
+          );
+        },
+        child: Container(
+          width: cardWidth,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: Color.lerp(Colors.blueGrey.shade100, primaryColor, _glowAnimation.value)!,
+              width: _isHovered ? 1.8 : 1.0,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+              if (_isHovered)
+                BoxShadow(
+                  color: primaryColor.withValues(alpha: 0.22),
+                  blurRadius: 24,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 8),
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Bandeau lumineux supérieur néon (Top Accent Gradient)
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 250),
+                  height: 4,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    color: _isHovered ? Colors.teal : Colors.blueGrey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Text(
-                    widget.badge,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: _isHovered ? Colors.white : Colors.blueGrey.shade800,
+                    gradient: LinearGradient(
+                      colors: _isHovered
+                          ? widget.gradientColors
+                          : [primaryColor.withValues(alpha: 0.3), secondaryColor.withValues(alpha: 0.3)],
                     ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(22),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Ligne d'en-tête : Icône animée + Badge néon
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 250),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              gradient: _isHovered
+                                  ? LinearGradient(colors: widget.gradientColors)
+                                  : null,
+                              color: _isHovered
+                                  ? null
+                                  : primaryColor.withValues(alpha: 0.10),
+                              borderRadius: BorderRadius.circular(14),
+                              boxShadow: _isHovered
+                                  ? [
+                                      BoxShadow(
+                                        color: primaryColor.withValues(alpha: 0.40),
+                                        blurRadius: 12,
+                                        spreadRadius: 1,
+                                      ),
+                                    ]
+                                  : null,
+                            ),
+                            child: Icon(
+                              widget.icon,
+                              size: 26,
+                              color: _isHovered ? Colors.white : primaryColor,
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(colors: widget.gradientColors),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: primaryColor.withValues(alpha: 0.25),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Text(
+                              widget.badge,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 18),
+
+                      // Titre du Pôle de Compétence
+                      Text(
+                        widget.title,
+                        style: const TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E293B),
+                          height: 1.3,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+
+                      // Barre de télémétrie / jauge de maîtrise animée (RTL-ready)
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          return Container(
+                            height: 5,
+                            width: constraints.maxWidth,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional.centerStart,
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 350),
+                                width: constraints.maxWidth * (_isHovered ? percent : (percent * 0.88)),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(colors: widget.gradientColors),
+                                  borderRadius: BorderRadius.circular(3),
+                                  boxShadow: _isHovered
+                                      ? [
+                                          BoxShadow(
+                                            color: secondaryColor.withValues(alpha: 0.4),
+                                            blurRadius: 6,
+                                          )
+                                        ]
+                                      : null,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 12),
+
+                      // Description détaillée
+                      Text(
+                        widget.desc,
+                        style: TextStyle(
+                          color: Colors.blueGrey.shade800,
+                          fontSize: 13,
+                          height: 1.5,
+                        ),
+                      ),
+
+                      // Badges / Tags technologiques associés
+                      if (widget.tags.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        Wrap(
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: widget.tags.map((tag) {
+                            return Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: primaryColor.withValues(alpha: 0.08),
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: primaryColor.withValues(alpha: 0.20),
+                                ),
+                              ),
+                              child: Text(
+                                tag,
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: primaryColor,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              widget.desc,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.grey, fontSize: 13, height: 1.45),
-            ),
-          ],
+          ),
         ),
       ),
     );

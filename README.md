@@ -32,10 +32,25 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
   - Exposition de 13 solutions réparties sur divers domaines stratégiques : ERP Dolibarr Mobile, Plateformes SaaS (Notifio CRM), Portails Collaboratifs (OneDev Track), Solutions Fiscales et OCR, Systèmes Éducatifs (ONEDEV Baraem, Plateforme Azzouz), Legal-Tech (Calcul d'indemnités), Fidélité Digitale (Kartiq), Contrôle Parental (Home Rules), et GameDev 2D (Azzouz Game).
   - Présentation synthétique protégeant la propriété intellectuelle tout en valorisant la stack technique et l'architecture logicielle.
 
-- **🎨 Effets Visuels & Animations Interactives** :
-  - Cartes de compétences et d'expériences animées au survol de la souris (*Hover Animations*).
-  - Badges d'expérience avec niveaux de maîtrise.
-  - Boîtes de dialogue interactives (*Modals*) pour explorer les détails des projets.
+- **⚡ 10 Pôles d'Expertise & Compétences Élites (AI & Enterprise Architecture)** :
+  - Mise en avant de 10 compétences à très forte valeur ajoutée taillées pour les recruteurs et donneurs d'ordres :
+    1. *IA d'Entreprise & LLMs Locaux* (llama.cpp, Ollama, vLLM, RAG sur-mesure, zéro fuite de données).
+    2. *Document AI & OCR Intelligent* (PaddleOCR, Tesseract, LayoutLM, extraction JSON automatique).
+    3. *Edge ML & Intelligence Embarquée* (TensorFlow Lite, ONNX Runtime, inférence locale sans cloud).
+    4. *Architecture Multiplateforme Haute Performance* (Flutter & Dart, WebAssembly, Clean Architecture, 60 FPS).
+    5. *Systèmes Autonomes Offline-First* (Bases locales SQLite & Drift, synchronisation bidirectionnelle résiliente).
+    6. *Automatisation IA & Workflows Agents* (Agentic AI, Function Calling, Webhooks, APIs complexes).
+    7. *ERP d'Entreprise & Modules API (Dolibarr)* (Core Dolibarr, REST API, modules PHP/SQL, conformité fiscale).
+    8. *Architecture SaaS & Traitement Asynchrone* (Multi-tenancy, Queues, distribution omnicanale WhatsApp/SMS/Email).
+    9. *Solutions FinTech & Legal-Tech* (Moteurs de calcul réglementaires, génération PDF certifiée, pistes d'audit).
+    10. *Sécurité Applicative & Architecture Zero-Trust* (OWASP, CSP/HSTS, RBAC/ABAC, chiffrement de bout en bout).
+
+- **🎨 Effets Visuels & Animations Futuristes Éblouissantes** :
+  - **Cartes de compétences à lévitation 3D et halo néon dynamique** (*Neon Hover & 3D Lift*).
+  - **Barres de télémétrie animées** (*Telemetry Progress Bar*) adaptées nativement à la direction LTR et RTL.
+  - **Boîtes d'icônes à gradient actif** avec reflets lumineux et tags technologiques interactifs.
+  - Badges de maîtrise chiffrés (92% à 98%).
+  - Modales détaillées pour explorer les projets et les stacks techniques.
 
 - **📱 Design 100% Réactif (Responsive)** :
   - Adaptation parfaite sur Mobile, Tablette et Écran Desktop.

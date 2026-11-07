@@ -347,9 +347,9 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                                     spacing: 10,
                                     runSpacing: 8,
                                     children: [
-                                      _buildIntroPill('Dolibarr ERP', Icons.business_center),
-                                      _buildIntroPill('Applied AI & OCR', Icons.psychology),
-                                      _buildIntroPill('Full-Stack Web', Icons.code_rounded),
+                                      _buildIntroPill('Enterprise AI & LLMs', Icons.psychology),
+                                      _buildIntroPill('Cross-Platform Flutter', Icons.devices),
+                                      _buildIntroPill('Dolibarr ERP & Cloud', Icons.business_center),
                                     ],
                                   ),
                                 ],

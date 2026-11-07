@@ -41,5 +41,19 @@ void main() {
 
     // Verify Arabic text appears
     expect(find.text('وليد الحساني'), findsOneWidget);
+
+    // Verify Arabic Elite Skills section and cards
+    expect(find.text('مجالات الخبرة والكفاءات النخبوية'), findsOneWidget);
+    expect(find.text('الذكاء الاصطناعي المؤسساتي والنماذج المحلية'), findsOneWidget);
+    expect(find.text('الرؤية الحاسوبية واستخراج الوثائق الذكي'), findsOneWidget);
+
+    // Tap on FR button to switch back to French
+    await tester.tap(find.text('FR'));
+    await tester.pump();
+
+    // Verify French Elite Skills
+    expect(find.text('PÔLES D’EXPERTISE & COMPÉTENCES ÉLITES'), findsOneWidget);
+    expect(find.text('IA d\'Entreprise & LLMs Locaux'), findsOneWidget);
+    expect(find.text('Document AI & OCR Intelligent'), findsOneWidget);
   });
 }
