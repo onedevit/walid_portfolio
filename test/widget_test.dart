@@ -55,5 +55,23 @@ void main() {
     expect(find.text('PÔLES D’EXPERTISE & COMPÉTENCES ÉLITES'), findsOneWidget);
     expect(find.text('IA d\'Entreprise & LLMs Locaux'), findsOneWidget);
     expect(find.text('Document AI & OCR Intelligent'), findsOneWidget);
+
+    // Scroll to the contact section and tap Me Contacter button
+    await tester.scrollUntilVisible(find.text('Me Contacter par E-mail'), 300);
+    await tester.tap(find.text('Me Contacter par E-mail'));
+    await tester.pumpAndSettle();
+
+    // Verify Contact Dialog and Anti-Bot verification elements exist
+    expect(find.byType(Dialog), findsOneWidget);
+    expect(find.text('M’envoyer un Message'), findsOneWidget);
+    expect(find.text('Votre Nom complet / Entreprise'), findsOneWidget);
+    expect(
+      find.descendant(of: find.byType(Dialog), matching: find.byIcon(Icons.security)),
+      findsOneWidget,
+    );
+
+    // Close the dialog
+    await tester.tap(find.byIcon(Icons.close));
+    await tester.pumpAndSettle();
   });
 }

@@ -52,6 +52,15 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
   - Badges de maîtrise chiffrés (92% à 98%).
   - Modales détaillées pour explorer les projets et les stacks techniques.
 
+- **📬 Formulaire de Contact Sécurisé & Protection Anti-Bot Multicouche** :
+  - Boîte de dialogue interactive (Modal) 100% réactive permettant aux visiteurs d'envoyer un message directement à l'adresse e-mail (`hasseniwalid@gmail.com`).
+  - Système de défense proactif contre les robots, scrapers et courriers indésirables (*Spam Flooding*) :
+    - **Invisible Honeypot Trap** : Champ invisible servant de piège aux robots qui le remplissent automatiquement, annulant la soumission en silence.
+    - **Smart Math Verification** : Question de calcul arithmétique dynamique (`Combien font X + Y ?`) validant la présence humaine en une seconde.
+    - **Submission Speed Gate** : Rejet automatique des soumissions instantanées (< 3 secondes) caractéristiques des bots.
+    - **Rate-Limiting Cooldown** : Temporisation anti-spam de 45 secondes après chaque envoi.
+    - **Passerelle Mailto de repli** : Possibilité d'ouvrir directement son client de messagerie en un clic.
+
 - **📱 Design 100% Réactif (Responsive)** :
   - Adaptation parfaite sur Mobile, Tablette et Écran Desktop.
 
