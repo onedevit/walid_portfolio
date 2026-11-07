@@ -24,6 +24,10 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
 - **📄 Téléchargement de CV Adaptatif** :
   - Téléchargement du CV au format PDF (`cv_fr.pdf`, `cv_en.pdf`, `cv_ar.pdf`) selon la langue active en un clic.
 
+- **💼 Showcase de 13 Projets Phares Interactifs** :
+  - Exposition de 13 solutions réparties sur divers domaines stratégiques : ERP Dolibarr Mobile, Plateformes SaaS (Notifio CRM), Portails Collaboratifs (OneDev Track), Solutions Fiscales et OCR, Systèmes Éducatifs (ONEDEV Baraem, Plateforme Azzouz), Legal-Tech (Calcul d'indemnités), Fidélité Digitale (Kartiq), Contrôle Parental (Home Rules), et GameDev 2D (Azzouz Game).
+  - Présentation synthétique protégeant la propriété intellectuelle tout en valorisant la stack technique et l'architecture logicielle.
+
 - **🎨 Effets Visuels & Animations Interactives** :
   - Cartes de compétences et d'expériences animées au survol de la souris (*Hover Animations*).
   - Badges d'expérience avec niveaux de maîtrise.
@@ -31,6 +35,9 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
 
 - **📱 Design 100% Réactif (Responsive)** :
   - Adaptation parfaite sur Mobile, Tablette et Écran Desktop.
+
+- **⚡ Standards Web Modernes & Compatibilité WebAssembly (Wasm)** :
+  - Migration vers `package:web` pour une exécution ultra-rapide et sécurisée sur les navigateurs modernes.
 
 - **🔗 Liens Réseaux Sociaux Officiels** :
   - Intégration des icônes officielles FontAwesome pour **LinkedIn** et **GitHub**.
@@ -40,6 +47,7 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
 ## 🛠️ Stack Technique
 
 - **Framework Front-End** : [Flutter Web](https://flutter.dev) (Dart)
+- **Standards Web** : `package:web` (Wasm Ready)
 - **Lecteur Vidéo** : `video_player`
 - **Icônes** : `font_awesome_flutter` & `cupertino_icons`
 - **Police & Typographie** : Google Fonts (`Roboto`, `Cairo`)

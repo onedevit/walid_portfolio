@@ -5,7 +5,7 @@ description: "Portfolio professionnel et CV interactif de Walid Hassani."
 publish_to: 'none'
 
 # Version et numéro de build (versionName et versionCode)
-version: 1.0.0+1
+version: 1.0.1+2
 
 # Version du SDK Dart requise
 environment:
@@ -17,13 +17,16 @@ dependencies:
     sdk: flutter
 
   # Icônes iOS (Cupertino)
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^2.0.0
   
   # Lecture de la vidéo de présentation
-  video_player: ^2.8.2
+  video_player: ^2.14.1
   
   # Icônes officielles (LinkedIn, GitHub, etc.)
   font_awesome_flutter: ^11.0.0
+
+  # Standards Web modernes compatibles WebAssembly (Wasm)
+  web: ^1.1.2
 
 # Dépendances de développement (tests et linter)
 dev_dependencies:

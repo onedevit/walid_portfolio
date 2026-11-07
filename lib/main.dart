@@ -1,5 +1,4 @@
-// ignore: avoid_web_libraries_in_flutter, deprecated_member_use
-import 'dart:html' as html;
+import 'web_helper.dart' as web_helper;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
@@ -87,21 +86,58 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'exp3Bullet2': 'Gestion des relations clients, cadrage budgétaire et planification des livrables.',
 
       'projectsTitle': 'PROJETS MARQUANTS INTERACTIFS',
-      'proj1Title': 'Plateforme E-Commerce Lumina (www.lumina.com.tn)',
-      'proj1Desc': 'Développement et intégration complète de la boutique e-commerce Lumina (www.lumina.com.tn). Conception de plugins WordPress et WooCommerce sur-mesure pour la gestion avancée des commandes, catalogue produit et synchronisation des flux.',
-      'proj1Tech': 'WordPress, WooCommerce, Plugins Sur-Mesure, PHP, MySQL, REST API',
+      'proj1Title': 'Plateforme E-Commerce Lumina',
+      'proj1Desc': 'Boutique en ligne moderne et responsive, optimisée pour la gestion de catalogue et le traitement fluide des flux de commandes.',
+      'proj1Tech': 'WordPress, WooCommerce, PHP, MySQL, REST API',
 
-      'proj2Title': 'Logiciel de Déclaration Fiscale & Traitement Factures (Desktop)',
-      'proj2Desc': 'Application intégrant un moteur OCR local (Tesseract) pour l’extraction automatique de données comptables et l’édition de bilans fiscaux sans dépendance cloud.',
-      'proj2Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+      'proj2Title': 'Dolibarr Mobile Enterprise',
+      'proj2Desc': 'Application mobile connectée aux serveurs Dolibarr ERP via API sécurisée pour le pilotage et la consultation en temps réel des flux d’entreprise.',
+      'proj2Tech': 'Flutter (Android & iOS), Dolibarr REST API, Provider, Material 3',
 
-      'proj3Title': 'ERP Métier sur-mesure (Dolibarr)',
-      'proj3Desc': 'Déploiement d’une version personnalisée dédiée aux cabinets juridiques et entreprises de services, automatisant la génération de documents légaux et le suivi financier.',
-      'proj3Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+      'proj3Title': 'Notifio CRM - Marketing Automation SaaS',
+      'proj3Desc': 'Plateforme SaaS d’automatisation marketing multi-canaux (WhatsApp, Email, SMS) avec gestion de files d’attente et suivi des performances.',
+      'proj3Tech': 'Flutter, Architecture SaaS, Queue Processing, REST APIs, Webhooks',
 
-      'proj4Title': 'ONEDEV Facture Lite',
-      'proj4Desc': 'Outil de gestion commerciale intégrant des modules intelligents de suggestion et de saisie automatisée, générant un gain de temps de 60% pour les utilisateurs.',
-      'proj4Tech': 'Flutter Mobile/Desktop, Modules IA, SQLite',
+      'proj4Title': 'OneDev Track - Portail de Suivi Projets',
+      'proj4Desc': 'Portail web collaboratif en production dédié au suivi d’avancement des projets clients, validation des étapes et archivage sécurisé.',
+      'proj4Tech': 'Flutter Web, Backend PHP, MySQL, REST API, Déploiement Cloud',
+
+      'proj5Title': 'Suite Fiscale & OCR Intelligent (Desktop)',
+      'proj5Desc': 'Application de gestion comptable avec extraction optique de documents (OCR local) et édition automatisée des déclarations fiscales.',
+      'proj5Tech': 'Flutter Desktop, Moteur OCR, SQLite, Générateur PDF',
+
+      'proj6Title': 'ONEDEV Facture Lite',
+      'proj6Desc': 'Solution logicielle autonome et portable de gestion commerciale, devis et facturation avec base de données locale embarquée.',
+      'proj6Tech': 'Flutter Desktop/Mobile, SQLite, Moteur PDF, Clean Architecture',
+
+      'proj7Title': 'ERP Métier Sur-Mesure (Dolibarr)',
+      'proj7Desc': 'Déploiement et personnalisation de modules ERP/CRM pour optimiser la gestion administrative, commerciale et le suivi financier.',
+      'proj7Tech': 'Dolibarr ERP, PHP, SQL, Extrafields, REST API',
+
+      'proj8Title': 'ONEDEV Baraem - Gestion Scolaire & Préscolaire',
+      'proj8Desc': 'Système de gestion multiplateforme (Desktop & Mobile) pour structures éducatives, opérant en mode autonome hors-ligne (Offline-First).',
+      'proj8Tech': 'Flutter Desktop & Mobile, Base SQLite (Offline-First), UI Responsive',
+
+      'proj9Title': 'ONEDEV Indemnité Accident - Legal-Tech',
+      'proj9Desc': 'Solution Legal-Tech spécialisée dans le calcul d’indemnités réglementaires et l’édition de rapports d’évaluation pour dossiers juridiques.',
+      'proj9Tech': 'Flutter, Moteur de Calcul Normatif, SQLite, Édition PDF',
+
+      'proj10Title': 'Kartiq - Solution de Fidélité Digitale',
+      'proj10Desc': 'Système de fidélisation client dématérialisé innovant offrant une expérience fluide sans application (Zero-App via QR Code web).',
+      'proj10Tech': 'Flutter Web, Expérience QR Code, Backend Cloud, UI Responsive',
+
+      'proj11Title': 'Écosystème Home Rules (Mobile & Desktop)',
+      'proj11Desc': 'Solution synchronisant une application mobile de supervision avec un agent Windows Desktop sécurisé pour la régulation du temps d’écran.',
+      'proj11Tech': 'Flutter Mobile, Flutter Desktop, Windows Win32 API, Supabase Cloud',
+
+      'proj12Title': 'Plateforme Éducative Interactive (Azzouz)',
+      'proj12Desc': 'Suite applicative interactive combinant un lecteur multimédia didactique et un gestionnaire de modules pédagogiques.',
+      'proj12Tech': 'Flutter Windows Desktop, Gestion Modulaire de Contenu, UI Enfant',
+
+      'proj13Title': 'Azzouz Game - Jeu de Plateforme 2D',
+      'proj13Desc': 'Jeu vidéo 2D rétro avec moteur physique, animations de sprites par images-clés, niveaux progressifs et conception sonore dynamique.',
+      'proj13Tech': 'Flutter, Flame Game Engine 2D, Audio FX, Persistance d’État',
+      'closeModal': 'Fermer',
 
       'educationTitle': 'FORMATION & DIPLÔMES',
       'edu1': 'Licence en Sciences de Gestion (Spécialité Comptabilité) – Université Virtuelle de Tunis (En cours)',
@@ -170,21 +206,58 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'exp3Bullet2': 'Client relationship management, budget scoping, and deliverable planning.',
 
       'projectsTitle': 'FEATURED INTERACTIVE PROJECTS',
-      'proj1Title': 'Lumina E-Commerce Platform (www.lumina.com.tn)',
-      'proj1Desc': 'Full development and integration of the Lumina e-commerce store (www.lumina.com.tn). Designed bespoke WordPress and WooCommerce plugins for advanced order management, product catalogs, and data flow synchronization.',
-      'proj1Tech': 'WordPress, WooCommerce, Custom Plugins, PHP, MySQL, REST API',
+      'proj1Title': 'Lumina E-Commerce Platform',
+      'proj1Desc': 'Modern and responsive online store optimized for catalog management and smooth order processing workflows.',
+      'proj1Tech': 'WordPress, WooCommerce, PHP, MySQL, REST API',
 
-      'proj2Title': 'Tax Declaration & Invoice Processing Software (Desktop)',
-      'proj2Desc': 'Application integrating a local OCR engine (Tesseract) for automatic accounting data extraction and tax report generation without cloud dependencies.',
-      'proj2Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+      'proj2Title': 'Dolibarr Mobile Enterprise',
+      'proj2Desc': 'Cross-platform mobile application securely connected to Dolibarr ERP servers via API for real-time business monitoring.',
+      'proj2Tech': 'Flutter (Android & iOS), Dolibarr REST API, Provider, Material 3',
 
-      'proj3Title': 'Custom Business ERP (Dolibarr)',
-      'proj3Desc': 'Deployment of a customized version dedicated to law firms and service companies, automating the generation of legal documents and financial tracking.',
-      'proj3Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+      'proj3Title': 'Notifio CRM - Marketing Automation SaaS',
+      'proj3Desc': 'Multi-channel marketing automation SaaS platform (WhatsApp, Email, SMS) with queue processing and delivery performance tracking.',
+      'proj3Tech': 'Flutter, SaaS Architecture, Queue Processing, REST APIs, Webhooks',
 
-      'proj4Title': 'ONEDEV Invoice Lite',
-      'proj4Desc': 'Commercial management tool integrating intelligent suggestion and automated data entry modules, generating a 60% time saving for users.',
-      'proj4Tech': 'Flutter Mobile/Desktop, AI Modules, SQLite',
+      'proj4Title': 'OneDev Track - Project Tracking Portal',
+      'proj4Desc': 'Live collaborative web portal for real-time monitoring of client project milestones, deliverables, and secure archives.',
+      'proj4Tech': 'Flutter Web, PHP Backend, MySQL, REST API, Cloud Deployment',
+
+      'proj5Title': 'Smart Tax & OCR Suite (Desktop)',
+      'proj5Desc': 'Accounting management software featuring local optical document extraction (OCR) and automated tax report generation.',
+      'proj5Tech': 'Flutter Desktop, OCR Engine, SQLite, PDF Generator',
+
+      'proj6Title': 'ONEDEV Facture Lite',
+      'proj6Desc': 'Standalone portable invoicing and commercial management solution with an embedded local database.',
+      'proj6Tech': 'Flutter Desktop/Mobile, SQLite, PDF Engine, Clean Architecture',
+
+      'proj7Title': 'Custom Business ERP (Dolibarr)',
+      'proj7Desc': 'Deployment and customization of ERP/CRM modules to streamline administrative, commercial, and financial operations.',
+      'proj7Tech': 'Dolibarr ERP, PHP, SQL, Extrafields, REST API',
+
+      'proj8Title': 'ONEDEV Baraem - Educational Management',
+      'proj8Desc': 'Cross-platform management system (Desktop & Mobile) for educational facilities, operating reliably offline (Offline-First).',
+      'proj8Tech': 'Flutter Desktop & Mobile, SQLite Database (Offline-First), Responsive UI',
+
+      'proj9Title': 'ONEDEV Accident Compensation - Legal-Tech',
+      'proj9Desc': 'Specialized Legal-Tech solution designed for statutory compensation calculations and formal legal evaluation reports.',
+      'proj9Tech': 'Flutter, Legal Calculation Engine, SQLite, PDF Reports',
+
+      'proj10Title': 'Kartiq - Digital Loyalty System',
+      'proj10Desc': 'Modern contactless customer loyalty system offering an instant zero-app web experience via interactive QR codes.',
+      'proj10Tech': 'Flutter Web, QR Experience, Cloud Backend, Responsive UI',
+
+      'proj11Title': 'Home Rules Ecosystem (Mobile & Desktop)',
+      'proj11Desc': 'Connected system synchronizing a parent mobile app with a secure Windows Desktop agent for smart screen-time regulation.',
+      'proj11Tech': 'Flutter Mobile, Flutter Desktop, Windows Win32 API, Supabase Cloud',
+
+      'proj12Title': 'Azzouz Interactive Learning Platform',
+      'proj12Desc': 'Interactive educational suite combining a multimedia learning player and a modular pedagogical content manager.',
+      'proj12Tech': 'Flutter Windows Desktop, Modular Content Management, Child-Friendly UI',
+
+      'proj13Title': 'Azzouz Game - 2D Platformer Video Game',
+      'proj13Desc': 'Retro-style 2D platformer video game built with a 2D physics engine, smooth sprite animations, progressive levels, and dynamic audio.',
+      'proj13Tech': 'Flutter, Flame Game Engine 2D, Audio FX, State Persistence',
+      'closeModal': 'Close',
 
       'educationTitle': 'EDUCATION & CERTIFICATIONS',
       'edu1': 'Bachelor\'s Degree in Management Sciences (Accounting Specialization) – Virtual University of Tunis (In progress)',
@@ -253,21 +326,58 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       'exp3Bullet2': 'إدارة العلاقات مع العملاء والضبط المالي والتخطيط للمخرجات.',
 
       'projectsTitle': 'المشاريع البارزة التفاعلية',
-      'proj1Title': 'منصة التجارة الإلكترونية Lumina (www.lumina.com.tn)',
-      'proj1Desc': 'تطوير ودمج شامل لمتجر Lumina الإلكتروني (www.lumina.com.tn). تصميم إضافات ووردبريس وووكمرس مخصصة للإدارة المتقدمة للطلبات، كتالوج المنتجات، ومزامنة تدفق البيانات.',
-      'proj1Tech': 'WordPress, WooCommerce, Plugins Sur-Mesure, PHP, MySQL, REST API',
+      'proj1Title': 'منصة التجارة الإلكترونية Lumina',
+      'proj1Desc': 'متجر إلكتروني حديث ومتجاوب، مصمم ومحسّن لإدارة كتالوج المنتجات وتدفق الطلبيات بسلاسة وسرعة.',
+      'proj1Tech': 'WordPress, WooCommerce, PHP, MySQL, REST API',
 
-      'proj2Title': 'برنامج التصريح الجبائي ومعالجة الفواتير (Desktop)',
-      'proj2Desc': 'تطبيق يدمج محرك التعرف الضوئي (Tesseract OCR) للاستخراج الآلي للبيانات المحاسبية وإعداد التقارير الضريبية دون الحاجة للاتصال السحابي.',
-      'proj2Tech': 'Flutter Desktop, Tesseract OCR, Python Backend',
+      'proj2Title': 'تطبيق الجوال لمؤسسات Dolibarr Mobile Enterprise',
+      'proj2Desc': 'تطبيق هاتف متعدد المنصات يرتبط مباشرة مع أنظمة Dolibarr ERP عبر واجهة برمجية آمنة لمتابعة الأداء التجاري والبيانات في الوقت الفعلي.',
+      'proj2Tech': 'Flutter (Android & iOS), Dolibarr REST API, Provider, Material 3',
 
-      'proj3Title': 'نظام ERP Dolibarr مخصص للمهن',
-      'proj3Desc': 'نشر نسخة مخصصة لمكاتب المحاماة والشركات الخدمية، مع أتمتة إنشاء الوثائق القانونية والمتابعة المالية.',
-      'proj3Tech': 'Dolibarr PHP/SQL, Extrafields, REST API',
+      'proj3Title': 'منصة أتمتة الحملات والتواصل Notifio CRM',
+      'proj3Desc': 'منصة سحابية متقدمة (SaaS) لإدارة وأتمتة حملات التواصل متعددة القنوات (WhatsApp, Email, SMS) مع متابعة دقيقة لمعدلات الوصول والتسليم.',
+      'proj3Tech': 'Flutter, SaaS Architecture, Queue Processing, REST APIs, Webhooks',
 
-      'proj4Title': 'ONEDEV Facture Lite',
-      'proj4Desc': 'أداة إدارة تجارية مع وحدات اقتراح وإدخال آلي ذكية، تساهم في توفير 60% من وقت المستخدمين.',
-      'proj4Tech': 'Flutter Mobile/Desktop, Modules IA, SQLite',
+      'proj4Title': 'بوابة متابعة المشاريع OneDev Track',
+      'proj4Desc': 'منصة ويب تفاعلية منشورة مباشرة تتيح للعملاء متابعة مراحل إنجاز المشاريع والمهام والتسليمات المعتمدة بشفافية وأمان.',
+      'proj4Tech': 'Flutter Web, PHP Backend, MySQL, REST API, Cloud Deployment',
+
+      'proj5Title': 'منظومة المحاسبة والتصريح الجبائي الذكية (Desktop)',
+      'proj5Desc': 'برنامج مكتبي لإدارة المعاملات المحاسبية مع خاصية القراءة الضوئية الذكية للفواتير (OCR) وإصدار التقارير الجبائية آلياً.',
+      'proj5Tech': 'Flutter Desktop, OCR Engine, SQLite, PDF Generator',
+
+      'proj6Title': 'برنامج الفوترة المحمول ONEDEV Facture Lite',
+      'proj6Desc': 'حل برمجي مستقل ومحمول لإدارة المبيعات والفوترة السريعة مع قاعدة بيانات محلية مدمجة.',
+      'proj6Tech': 'Flutter Desktop/Mobile, SQLite, PDF Engine, Clean Architecture',
+
+      'proj7Title': 'نظام ERP مخصص للمؤسسات (Dolibarr)',
+      'proj7Desc': 'إعداد وتخصيص وحدات متقدمة لنظام إدارة المؤسسات ERP/CRM لتبسيط ومتابعة مسارات العمل والوثائق الإدارية والمالية.',
+      'proj7Tech': 'Dolibarr ERP, PHP, SQL, Extrafields, REST API',
+
+      'proj8Title': 'منظومة إدارة المؤسسات التربوية ONEDEV Baraem',
+      'proj8Desc': 'نظام تطبيقي متكامل يعمل على الحواسيب والهواتف لإدارة العمليات الإدارية والمالية للمؤسسات التعليمية بنمط العمل دون اتصال (Offline-First).',
+      'proj8Tech': 'Flutter Desktop & Mobile, Base SQLite (Offline-First), UI Responsive',
+
+      'proj9Title': 'تطبيق الحسابات القانونية والتعويضات ONEDEV Legal-Tech',
+      'proj9Desc': 'حل برمجي قانوني تخصصي لحساب مستحقات التعويضات بدقة وفق المقاييس المعتمدة وإصدار تقارير مفصلة للملفات القانونية.',
+      'proj9Tech': 'Flutter, Legal Computing Engine, SQLite, PDF Reports',
+
+      'proj10Title': 'نظام الولاء الرقمي الذكي Kartiq',
+      'proj10Desc': 'منظومة ولاء رقمية حديثة للمحلات والمطاعم تعتمد تجربة المستخدم الفورية عبر الـ QR Code دون إلزام العميل بتحميل أي تطبيق.',
+      'proj10Tech': 'Flutter Web, QR Experience, Cloud Backend, Responsive UI',
+
+      'proj11Title': 'منظومة Home Rules المتكاملة (Mobile & Desktop)',
+      'proj11Desc': 'حل تقني يربط بين تطبيق هاتف للإشراف وتطبيق حاسوب بنظام Windows مزود بحماية أمان لتنظيم وإدارة أوقات استخدام الأجهزة الذكية.',
+      'proj11Tech': 'Flutter Mobile, Flutter Desktop, Windows Win32 API, Supabase Cloud',
+
+      'proj12Title': 'المنصة التعليمية التفاعلية "تعلم مع عزوز"',
+      'proj12Desc': 'بيئة برمجية تفاعلية تجمع بين مشغل وسائط تعليمي وتطبيقي موجه للأطفال مع أداة مرنة لإدارة وتنظيم المحتوى التدريبي.',
+      'proj12Tech': 'Flutter Windows Desktop, Modular Content Management, Child-Friendly UI',
+
+      'proj13Title': 'لعبة المغامرات ثنائية الأبعاد Azzouz Game',
+      'proj13Desc': 'لعبة فيديو 2D كلاسيكية مشوقة تعتمد محرك ألعاب مخصص وفيزياء الحركة والتصادم مع مراحل متدرجة ومؤثرات صوتية تفاعلية.',
+      'proj13Tech': 'Flutter, Flame Game Engine 2D, Audio FX, State Persistence',
+      'closeModal': 'إغلاق',
 
       'educationTitle': 'التعليم والشهادات',
       'edu1': 'إجازة في علوم التصرف (اختصاص محاسبة) – الجامعة الافتراضية بتونس (قيد الدراسة)',
@@ -352,10 +462,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
     final String pdfUrl = 'cv_$lang.pdf'; // URL directe depuis la racine du serveur web (Vercel)
 
     try {
-      html.AnchorElement(href: pdfUrl)
-        ..target = '_blank'
-        ..setAttribute('download', 'Walid_Hassani_CV_${lang.toUpperCase()}.pdf')
-        ..click();
+      web_helper.downloadFile(pdfUrl, 'Walid_Hassani_CV_${lang.toUpperCase()}.pdf');
     } catch (e) {
       debugPrint("Erreur lors du téléchargement du CV: $e");
     }
@@ -404,7 +511,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   }
 
   // Afficher la boîte de dialogue des détails du projet (Modal)
-  void _showProjectModal(BuildContext context, String title, String desc, String techStack) {
+  void _showProjectModal(BuildContext context, String title, String desc, String techStack, String closeBtnText) {
     showDialog(
       context: context,
       builder: (context) {
@@ -452,7 +559,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Fermer'),
+              child: Text(closeBtnText),
             ),
           ],
         );
@@ -922,40 +1029,18 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                       spacing: 20,
                       runSpacing: 20,
                       alignment: WrapAlignment.center,
-                      children: [
-                        _buildProjectCard(
+                      children: List.generate(13, (index) {
+                        int pNum = index + 1;
+                        return _buildProjectCard(
                           context,
-                          t['proj1Title']!,
-                          t['proj1Desc']!,
-                          t['proj1Tech']!,
+                          t['proj${pNum}Title']!,
+                          t['proj${pNum}Desc']!,
+                          t['proj${pNum}Tech']!,
                           t['viewDetails']!,
+                          t['closeModal'] ?? 'Fermer',
                           screenWidth,
-                        ),
-                        _buildProjectCard(
-                          context,
-                          t['proj2Title']!,
-                          t['proj2Desc']!,
-                          t['proj2Tech']!,
-                          t['viewDetails']!,
-                          screenWidth,
-                        ),
-                        _buildProjectCard(
-                          context,
-                          t['proj3Title']!,
-                          t['proj3Desc']!,
-                          t['proj3Tech']!,
-                          t['viewDetails']!,
-                          screenWidth,
-                        ),
-                        _buildProjectCard(
-                          context,
-                          t['proj4Title']!,
-                          t['proj4Desc']!,
-                          t['proj4Tech']!,
-                          t['viewDetails']!,
-                          screenWidth,
-                        ),
-                      ],
+                        );
+                      }),
                     ),
                   ],
                 ),
@@ -989,7 +1074,9 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                               children: [
                                 const Icon(Icons.school, color: Colors.blueGrey),
                                 const SizedBox(width: 10),
-                                Text(t['educationTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                Expanded(
+                                  child: Text(t['educationTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                ),
                               ],
                             ),
                             const SizedBox(height: 12),
@@ -1018,7 +1105,9 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                               children: [
                                 const Icon(Icons.language, color: Colors.blueGrey),
                                 const SizedBox(width: 10),
-                                Text(t['langCommitmentTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                Expanded(
+                                  child: Text(t['langCommitmentTitle']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                ),
                               ],
                             ),
                             const SizedBox(height: 12),
@@ -1084,7 +1173,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                         OutlinedButton.icon(
                           onPressed: () {
                             try {
-                              html.window.open('https://www.linkedin.com/in/walidhassani', '_blank');
+                              web_helper.openUrl('https://www.linkedin.com/in/walidhassani');
                             } catch (e) {
                               debugPrint("Erreur lors de l'ouverture de LinkedIn: $e");
                             }
@@ -1099,7 +1188,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                         OutlinedButton.icon(
                           onPressed: () {
                             try {
-                              html.window.open('https://github.com/onedevit', '_blank');
+                              web_helper.openUrl('https://github.com/onedevit');
                             } catch (e) {
                               debugPrint("Erreur lors de l'ouverture de GitHub: $e");
                             }
@@ -1167,14 +1256,14 @@ class _PortfolioHomeState extends State<PortfolioHome> {
 
   // Card de projet interactive responsive avec animation au survol
   Widget _buildProjectCard(
-      BuildContext context, String title, String desc, String tech, String btnText, double screenWidth) {
+      BuildContext context, String title, String desc, String tech, String btnText, String closeBtnText, double screenWidth) {
     double cardWidth = screenWidth < 400 ? (screenWidth - 32) : 350.0;
     return InkWell(
-      onTap: () => _showProjectModal(context, title, desc, tech),
+      onTap: () => _showProjectModal(context, title, desc, tech, closeBtnText),
       borderRadius: BorderRadius.circular(10),
       child: Container(
         width: cardWidth,
-        height: 220,
+        height: 230,
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.blueGrey.shade50,
@@ -1191,7 +1280,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 Expanded(
                   child: Text(title,
                       style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold)),
+                          fontSize: 15, fontWeight: FontWeight.bold)),
                 ),
                 const Icon(Icons.open_in_new, size: 18, color: Colors.blueGrey),
               ],
@@ -1210,12 +1299,14 @@ class _PortfolioHomeState extends State<PortfolioHome> {
               children: [
                 const Icon(Icons.touch_app, size: 16, color: Colors.teal),
                 const SizedBox(width: 5),
-                Text(
-                  btnText,
-                  style: const TextStyle(
-                      color: Colors.teal,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    btnText,
+                    style: const TextStyle(
+                        color: Colors.teal,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
