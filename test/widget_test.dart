@@ -16,9 +16,9 @@ void main() {
     await tester.pumpWidget(const PortfolioApp());
     await tester.pump();
 
-    // Verify Intro overlay is visible with Passer button and WH monogram
+    // Verify Intro overlay is visible with Passer button and Enter button
     expect(find.text('Passer'), findsOneWidget);
-    expect(find.text('WH'), findsOneWidget);
+    expect(find.text('Entrer sur le site'), findsOneWidget);
 
     // Tap Passer to dismiss intro immediately
     await tester.tap(find.text('Passer'));

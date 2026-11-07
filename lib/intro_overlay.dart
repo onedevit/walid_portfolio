@@ -2,7 +2,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 /// الشاشة الافتتاحية التفاعلية السينمائية (Futuristic Cyber-Intro)
-/// تظهر تلقائياً لمدة 3.5 ثانية وتتلاشى بسلاسة تامة، مع إمكانية التخطي الفوري
+/// تعرض صورة البروفايل داخل حلقة نيون متوهجة وحركة جزيئات رقمية مستمرة
+/// وتبقى ظاهرة حتى ينقر الزائر على زر الدخول أو التخطي (Passer)
 class IntroOverlay extends StatefulWidget {
   final VoidCallback onFinished;
 
@@ -13,15 +14,18 @@ class IntroOverlay extends StatefulWidget {
 }
 
 class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMixin {
-  late final AnimationController _mainController;
+  late final AnimationController _entranceController;
+  late final AnimationController _pulseController;
   late final AnimationController _particleController;
+  late final AnimationController _exitController;
 
-  late final Animation<double> _logoScale;
-  late final Animation<double> _logoFade;
+  late final Animation<double> _photoScale;
+  late final Animation<double> _photoFade;
   late final Animation<double> _textFade;
   late final Animation<double> _letterSpacing;
   late final Animation<double> _lineWidth;
   late final Animation<double> _badgeFade;
+  late final Animation<double> _buttonFade;
   late final Animation<double> _exitFade;
   late final Animation<double> _exitScale;
 
@@ -31,101 +35,109 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    // مشغل حركة الخلفية المستمرة (جزيئات النيون)
+    // 1. مشغل حركة جزيئات النيون في الخلفية
     _particleController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 10),
     )..repeat();
 
-    // مشغل المشهد السينمائي الكامل (3.5 ثوانٍ)
-    _mainController = AnimationController(
+    // 2. مشغل النبض والتوهج المستمر (Ambient Breathing Loop)
+    _pulseController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 3500),
+      duration: const Duration(milliseconds: 2200),
+    )..repeat(reverse: true);
+
+    // 3. مشغل الدخول التدريجي للعناصر (Entrance: 1.8s)
+    _entranceController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1800),
     );
 
-    // 1. ظهور اللوغو وتوسعه (0.0s إلى 1.0s)
-    _logoScale = Tween<double>(begin: 0.5, end: 1.0).animate(
+    // 4. مشغل الخروج السلس عند النقر (Exit: 500ms)
+    _exitController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    // حركة ظهور وتكبير الصورة
+    _photoScale = Tween<double>(begin: 0.6, end: 1.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.0, 0.35, curve: Curves.easeOutBack),
+        parent: _entranceController,
+        curve: const Interval(0.0, 0.55, curve: Curves.easeOutBack),
       ),
     );
-    _logoFade = Tween<double>(begin: 0.0, end: 1.0).animate(
+    _photoFade = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.0, 0.25, curve: Curves.easeIn),
+        parent: _entranceController,
+        curve: const Interval(0.0, 0.40, curve: Curves.easeIn),
       ),
     );
 
-    // 2. ظهور الاسم وتباعد الأحرف (0.8s إلى 1.8s)
+    // ظهور الاسم وتباعد الأحرف السينمائي
     _textFade = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.25, 0.55, curve: Curves.easeIn),
+        parent: _entranceController,
+        curve: const Interval(0.30, 0.70, curve: Curves.easeIn),
       ),
     );
-    _letterSpacing = Tween<double>(begin: 1.0, end: 6.0).animate(
+    _letterSpacing = Tween<double>(begin: 1.0, end: 5.5).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.25, 0.70, curve: Curves.easeOutCubic),
+        parent: _entranceController,
+        curve: const Interval(0.30, 0.85, curve: Curves.easeOutCubic),
       ),
     );
 
-    // 3. تمدد الخط النيوني الليزري (1.2s إلى 2.0s)
-    _lineWidth = Tween<double>(begin: 0.0, end: 240.0).animate(
+    // تمدد الخط النيوني الليزري
+    _lineWidth = Tween<double>(begin: 0.0, end: 260.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.35, 0.65, curve: Curves.easeOutCubic),
+        parent: _entranceController,
+        curve: const Interval(0.45, 0.80, curve: Curves.easeOutCubic),
       ),
     );
 
-    // 4. ظهور الشارات والصفة المهنية (1.8s إلى 2.8s)
+    // ظهور الشارات والصفة المهنية
     _badgeFade = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.55, 0.85, curve: Curves.easeIn),
+        parent: _entranceController,
+        curve: const Interval(0.65, 0.95, curve: Curves.easeIn),
       ),
     );
 
-    // 5. تلاشي المشهد بالكامل سينمائياً (3.0s إلى 3.5s)
-    _exitFade = Tween<double>(begin: 1.0, end: 0.0).animate(
+    // ظهور زر الدخول التفاعلي
+    _buttonFade = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.85, 1.0, curve: Curves.easeInOutCubic),
+        parent: _entranceController,
+        curve: const Interval(0.75, 1.0, curve: Curves.easeIn),
       ),
+    );
+
+    // حركة الخروج والتلاشي عند النقر
+    _exitFade = Tween<double>(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(parent: _exitController, curve: Curves.easeInOutCubic),
     );
     _exitScale = Tween<double>(begin: 1.0, end: 1.08).animate(
-      CurvedAnimation(
-        parent: _mainController,
-        curve: const Interval(0.85, 1.0, curve: Curves.easeIn),
-      ),
+      CurvedAnimation(parent: _exitController, curve: Curves.easeIn),
     );
 
-    _mainController.forward();
+    _entranceController.forward();
+  }
 
-    _mainController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _finish();
+  void _triggerExit() {
+    if (_isExiting) return;
+    _isExiting = true;
+    _exitController.forward().then((_) {
+      if (mounted) {
+        widget.onFinished();
       }
     });
   }
 
-  void _finish() {
-    if (_isExiting) return;
-    _isExiting = true;
-    widget.onFinished();
-  }
-
-  void _skip() {
-    if (_isExiting) return;
-    _isExiting = true;
-    widget.onFinished();
-  }
-
   @override
   void dispose() {
-    _mainController.dispose();
+    _entranceController.dispose();
+    _pulseController.dispose();
     _particleController.dispose();
+    _exitController.dispose();
     super.dispose();
   }
 
@@ -135,8 +147,10 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
     final bool isMobile = size.width < 600;
 
     return AnimatedBuilder(
-      animation: _mainController,
+      animation: Listenable.merge([_entranceController, _exitController, _pulseController]),
       builder: (context, child) {
+        final double pulseValue = _pulseController.value;
+
         return Opacity(
           opacity: _exitFade.value.clamp(0.0, 1.0),
           child: Transform.scale(
@@ -147,7 +161,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
                   center: Alignment(0.0, -0.1),
-                  radius: 1.2,
+                  radius: 1.25,
                   colors: [
                     Color(0xFF0F1E2E), // كحلي نيوني دافئ في المركز
                     Color(0xFF080D14), // أسود لؤلؤي محيطي
@@ -157,7 +171,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // خلفية الجزيئات الرقمية المتلألئة
+                  // 1. خلفية الجزيئات الرقمية المتلألئة
                   AnimatedBuilder(
                     animation: _particleController,
                     builder: (context, _) {
@@ -168,19 +182,19 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                     },
                   ),
 
-                  // زر التخطي السريع بالأعلى
+                  // 2. زر التخطي العلوي السريع
                   Positioned(
                     top: isMobile ? 30 : 40,
                     right: isMobile ? 20 : 40,
                     child: InkWell(
-                      onTap: _skip,
+                      onTap: _triggerExit,
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                         decoration: BoxDecoration(
                           color: Colors.white.withValues(alpha: 0.08),
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.tealAccent.withValues(alpha: 0.3)),
+                          border: Border.all(color: Colors.tealAccent.withValues(alpha: 0.35)),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -188,7 +202,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                             Text(
                               'Passer',
                               style: TextStyle(
-                                color: Colors.white.withValues(alpha: 0.8),
+                                color: Colors.white.withValues(alpha: 0.85),
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                                 letterSpacing: 1.0,
@@ -198,7 +212,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                             Icon(
                               Icons.arrow_forward_rounded,
                               size: 14,
-                              color: Colors.tealAccent.withValues(alpha: 0.8),
+                              color: Colors.tealAccent.withValues(alpha: 0.85),
                             ),
                           ],
                         ),
@@ -206,22 +220,22 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                     ),
                   ),
 
-                  // المحتوى المركزي المبهر
+                  // 3. المحتوى المركزي الفخم
                   Center(
                     child: SingleChildScrollView(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            // 1. مونوغرام النيون المركزي (WH)
+                            // أ. صورة البروفايل الشخصية داخل الحلقة النيونية المضيئة
                             Transform.scale(
-                              scale: _logoScale.value,
+                              scale: _photoScale.value,
                               child: Opacity(
-                                opacity: _logoFade.value.clamp(0.0, 1.0),
+                                opacity: _photoFade.value.clamp(0.0, 1.0),
                                 child: Container(
-                                  width: isMobile ? 90 : 110,
-                                  height: isMobile ? 90 : 110,
+                                  width: isMobile ? 120 : 145,
+                                  height: isMobile ? 120 : 145,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     gradient: const LinearGradient(
@@ -235,42 +249,25 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                                     ),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.tealAccent.withValues(alpha: 0.45),
-                                        blurRadius: 35,
-                                        spreadRadius: 3,
+                                        color: Colors.tealAccent.withValues(alpha: 0.45 + (pulseValue * 0.20)),
+                                        blurRadius: 35 + (pulseValue * 15),
+                                        spreadRadius: 3 + (pulseValue * 2),
                                       ),
                                       BoxShadow(
                                         color: Colors.cyanAccent.withValues(alpha: 0.25),
-                                        blurRadius: 60,
-                                        spreadRadius: 8,
+                                        blurRadius: 65,
+                                        spreadRadius: 6,
                                       ),
                                     ],
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.0),
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xFF0B141E),
-                                      ),
-                                      child: Center(
-                                        child: ShaderMask(
-                                          shaderCallback: (bounds) => const LinearGradient(
-                                            colors: [Colors.white, Color(0xFF64FFDA)],
-                                            begin: Alignment.topCenter,
-                                            end: Alignment.bottomCenter,
-                                          ).createShader(bounds),
-                                          child: Text(
-                                            'WH',
-                                            style: TextStyle(
-                                              fontSize: isMobile ? 38 : 46,
-                                              fontWeight: FontWeight.w900,
-                                              letterSpacing: 2.0,
-                                              color: Colors.white,
-                                              fontFamily: 'Roboto',
-                                            ),
-                                          ),
-                                        ),
+                                    child: ClipOval(
+                                      child: Image.asset(
+                                        'assets/profile.jpg',
+                                        fit: BoxFit.cover,
+                                        width: isMobile ? 112 : 137,
+                                        height: isMobile ? 112 : 137,
                                       ),
                                     ),
                                   ),
@@ -278,9 +275,9 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                               ),
                             ),
 
-                            const SizedBox(height: 28),
+                            const SizedBox(height: 26),
 
-                            // 2. الاسم بحركة تباعد الحروف السينمائية
+                            // ب. الاسم بحركة تباعد الحروف السينمائية
                             Opacity(
                               opacity: _textFade.value.clamp(0.0, 1.0),
                               child: Text(
@@ -293,8 +290,8 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                                   color: Colors.white,
                                   shadows: [
                                     Shadow(
-                                      color: Colors.tealAccent.withValues(alpha: 0.5),
-                                      blurRadius: 18,
+                                      color: Colors.tealAccent.withValues(alpha: 0.55),
+                                      blurRadius: 20,
                                     ),
                                   ],
                                 ),
@@ -303,7 +300,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
 
                             const SizedBox(height: 14),
 
-                            // 3. الخط الليزري الممتد من المركز
+                            // ج. الخط الليزري الممتد من المركز
                             Container(
                               width: _lineWidth.value,
                               height: 2.0,
@@ -329,7 +326,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
 
                             const SizedBox(height: 16),
 
-                            // 4. التخصص والصفة المهنية
+                            // د. التخصص والصفة المهنية والشارات
                             Opacity(
                               opacity: _badgeFade.value.clamp(0.0, 1.0),
                               child: Column(
@@ -340,7 +337,7 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                                     style: TextStyle(
                                       fontSize: isMobile ? 12 : 15,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.white.withValues(alpha: 0.85),
+                                      color: Colors.white.withValues(alpha: 0.88),
                                       letterSpacing: isMobile ? 1.5 : 2.5,
                                     ),
                                   ),
@@ -356,6 +353,56 @@ class _IntroOverlayState extends State<IntroOverlay> with TickerProviderStateMix
                                     ],
                                   ),
                                 ],
+                              ),
+                            ),
+
+                            const SizedBox(height: 30),
+
+                            // هـ. زر الدخول التفاعلي البارز للموقع
+                            Opacity(
+                              opacity: _buttonFade.value.clamp(0.0, 1.0),
+                              child: InkWell(
+                                onTap: _triggerExit,
+                                borderRadius: BorderRadius.circular(30),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: isMobile ? 24 : 34,
+                                    vertical: isMobile ? 12 : 15,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                      colors: [Color(0xFF00BFA5), Color(0xFF00E5FF)],
+                                    ),
+                                    borderRadius: BorderRadius.circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.tealAccent.withValues(alpha: 0.4 + (pulseValue * 0.25)),
+                                        blurRadius: 22 + (pulseValue * 8),
+                                        spreadRadius: 2,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'Entrer sur le site',
+                                        style: TextStyle(
+                                          color: Colors.blueGrey.shade900,
+                                          fontSize: isMobile ? 13 : 15,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1.2,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Icon(
+                                        Icons.arrow_forward_rounded,
+                                        size: 18,
+                                        color: Colors.blueGrey.shade900,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           ],
