@@ -61,6 +61,19 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
     - **Rate-Limiting Cooldown** : Temporisation anti-spam de 45 secondes après chaque envoi.
     - **Passerelle Mailto de repli** : Possibilité d'ouvrir directement son client de messagerie en un clic.
 
+- **📊 Télémétrie & Analyse d'Audience Vercel (Web Analytics & Speed Insights)** :
+  - Intégration native des scripts d'analyse Vercel (`/_vercel/insights/script.js` et `/_vercel/speed-insights/script.js`) injectés dans `web/index.html`.
+  - Suivi en temps réel des visiteurs, des pays d'origine, des taux de rebond et des métriques de performance **Core Web Vitals (LCP, FID, CLS)** directement sur le tableau de bord Vercel.
+
+- **🧱 Architecture Modulaire Épurée & Découpage du Code** :
+  - Découpage complet du code monolithique en composants isolés et maintenables :
+    - `translations.dart` : Dictionnaires de traduction centralisés (FR / EN / AR).
+    - `contact_form_dialog.dart` : Boîte de dialogue du formulaire de contact sécurisé avec 5 couches anti-bot.
+    - `skill_hover_card.dart` : Cartes de compétences 3D avec néon hover et barres de télémétrie.
+    - `experience_card.dart` : Cartes d'expériences professionnelles interactives.
+    - `project_dialog.dart` : Boîte modale et cartes de projets marquants.
+    - `intro_overlay.dart` : Écran d'accueil cinématique avec bouton d'accès rapide.
+
 - **📱 Design 100% Réactif (Responsive)** :
   - Adaptation parfaite sur Mobile, Tablette et Écran Desktop.
 
@@ -122,13 +135,23 @@ Assurez-vous d'avoir installé :
 walid_portfolio/
 ├── assets/                  # Ressources multimédias (images, vidéos, PDF)
 ├── lib/
-│   └── main.dart            # Code source principal (UI, animations, traductions)
-├── web/                     # Fichiers spécifiques au Web
-│   ├── index.html           # Structure HTML, métadonnées SEO, liens Google Fonts
+│   ├── main.dart            # Point d'entrée principal & composition des sections
+│   ├── translations.dart    # Dictionnaires multilingues centralisés (FR, EN, AR)
+│   ├── contact_form_dialog.dart # Formulaire de contact sécurisé & Anti-Bot
+│   ├── skill_hover_card.dart    # Composant de carte de compétence animée 3D
+│   ├── experience_card.dart     # Composant d'expérience professionnelle interactive
+│   ├── project_dialog.dart      # Modale de détails & carte de projet interactive
+│   ├── intro_overlay.dart       # Animation d'intro futuriste (Cyber-Intro)
+│   └── web_helper.dart          # Utilitaires de téléchargement WebAssembly
+├── test/
+│   ├── widget_test.dart         # Tests d'intégration et scénarios utilisateurs
+│   └── modular_widgets_test.dart # Tests unitaires et d'isolation des composants
+├── web/                     # Fichiers spécifiques au Web & scripts Analytics
+│   ├── index.html           # Structure HTML, SEO, Vercel Web Analytics & Speed Insights
 │   ├── manifest.json        # Configuration PWA & Thème
 │   └── cv_*.pdf             # Fichiers PDF des CV accessibles à la racine
 ├── analysis_options.yaml    # Règles de linter et d'analyse statique
-├── pubspec.yaml             # Gestion des dépendances et assets
+├── pubspec.yaml             # Version v1.0.6+7 & dépendances du projet
 └── README.md                # Documentation du projet
 ```
 
