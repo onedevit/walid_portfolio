@@ -5,7 +5,7 @@ description: "Portfolio professionnel et CV interactif de Walid Hassani."
 publish_to: 'none'
 
 # Version et numéro de build (versionName et versionCode)
-version: 1.0.6+7
+version: 1.0.7+8
 
 # Version du SDK Dart requise
 environment:

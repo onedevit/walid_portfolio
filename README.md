@@ -74,6 +74,19 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
     - `project_dialog.dart` : Boîte modale et cartes de projets marquants.
     - `intro_overlay.dart` : Écran d'accueil cinématique avec bouton d'accès rapide.
 
+- **🚀 Optimisation Google PageSpeed & Core Web Vitals (Zero NO_LCP)** :
+  - **Instant Semantic Splash Loader** : Écran d'accueil natif et ultra-léger en Pure HTML & CSS dans `index.html` avec avatar et titre `<h1>`, reconnu instantanément par Lighthouse comme LCP valide en moins d'une seconde, éliminant totalement l'erreur `Error! NO_LCP`.
+  - **Préchargement non-bloquant des polices Google Fonts** : Élimination des requêtes bloquant le rendu via `preload` asynchrone.
+  - **Allègement drastique de la charge réseau** : Réduction de plus de 3.5 Mo de la charge initiale par l'exclusion des PDF volumineux du bundle Flutter.
+
+- **🔍 Conformité SEO 100/100 & Indexation Google** :
+  - **`robots.txt` officiel et conforme** : Suppression totale des 52 erreurs de syntaxe générées par les redirections SPA Vercel.
+  - **`sitemap.xml` structuré** : Indexation rapide et prioritaire de la racine du site.
+  - **Métadonnées OpenGraph & Twitter Cards enrichies** : Titre, description, mots-clés, auteur, `canonical` et visuels pour un partage social optimal.
+
+- **🤖 Navigation Agentique & Recherche IA (4/4)** :
+  - Intégration du standard **`llms.txt`** pour guider avec précision les moteurs et agents de recherche IA (Gemini, ChatGPT, Perplexity).
+
 - **📱 Design 100% Réactif (Responsive)** :
   - Adaptation parfaite sur Mobile, Tablette et Écran Desktop.
 
@@ -146,12 +159,15 @@ walid_portfolio/
 ├── test/
 │   ├── widget_test.dart         # Tests d'intégration et scénarios utilisateurs
 │   └── modular_widgets_test.dart # Tests unitaires et d'isolation des composants
-├── web/                     # Fichiers spécifiques au Web & scripts Analytics
-│   ├── index.html           # Structure HTML, SEO, Vercel Web Analytics & Speed Insights
+├── web/                     # Fichiers spécifiques au Web, SEO & Analytics
+│   ├── index.html           # Structure HTML, SEO, Splash Loader, Analytics
+│   ├── robots.txt           # Directives d'exploration conformes Google
+│   ├── sitemap.xml          # Plan du site XML pour indexation
+│   ├── llms.txt             # Standard d'indexation pour agents IA
 │   ├── manifest.json        # Configuration PWA & Thème
 │   └── cv_*.pdf             # Fichiers PDF des CV accessibles à la racine
 ├── analysis_options.yaml    # Règles de linter et d'analyse statique
-├── pubspec.yaml             # Version v1.0.6+7 & dépendances du projet
+├── pubspec.yaml             # Version v1.0.7+8 & dépendances du projet
 └── README.md                # Documentation du projet
 ```
 

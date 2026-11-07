@@ -1,0 +1,22 @@
+# Walid Hassani - Portfolio & Services
+
+> Consultant ERP Dolibarr & Chef de Projet Technique. Expert en intégration de solutions de gestion d'entreprise, automatisation de flux métier, IA locale (LLMs, OCR) et ingénierie logicielle Flutter multiplateforme.
+
+## Profil & Compétences Clés
+- IA d'Entreprise & LLMs Locaux (llama.cpp, Ollama, vLLM, RAG sur-mesure)
+- Document AI & OCR Intelligent (PaddleOCR, Tesseract, LayoutLM)
+- Edge ML & Inférence Embarquée (TensorFlow Lite, ONNX Runtime)
+- Architecture Multiplateforme Haute Performance (Flutter, Dart, WebAssembly, Clean Architecture)
+- Systèmes Autonomes Offline-First (SQLite, Drift, synchronisation bidirectionnelle)
+- Automatisation IA & Workflows Agents (Agentic AI, Function Calling, Webhooks)
+- ERP d'Entreprise & Modules API (Dolibarr Core, REST API, Modules PHP/SQL)
+- Architecture SaaS & Traitement Asynchrone (Multi-Tenant, Queues)
+- Solutions FinTech & Legal-Tech (Calculs réglementaires, PDF certifiés)
+- Sécurité Applicative & Architecture Zero-Trust (CSP, HSTS, RBAC)
+
+## Coordonnées & Liens
+- Portfolio Web : https://walid-portfolio-blue.vercel.app/
+- E-mail : hasseniwalid@gmail.com
+- Téléphone : (+216) 52 985 659
+- LinkedIn : https://www.linkedin.com/in/walidhassani
+- GitHub : https://github.com/onedevit

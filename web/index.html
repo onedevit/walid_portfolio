@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Walid Hassani - Consultant ERP Dolibarr & Chef de Projet Technique. Portfolio professionnel et démonstrations interactives.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walid Hassani - Consultant ERP & Chef de Projet Technique</title>
+  <meta name="description" content="Portfolio professionnel et CV interactif de Walid Hassani. Consultant ERP Dolibarr, Chef de Projet Technique, expert en IA locale, OCR et solutions Flutter multiplateformes.">
+  <meta name="keywords" content="Walid Hassani, Consultant ERP, Dolibarr, Chef de Projet Technique, Flutter, WebAssembly, OCR, IA Locale, LLM, Full-Stack, Tunisie, France, Belgique">
+  <meta name="author" content="Walid Hassani">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://walid-portfolio-blue.vercel.app/">
+  <meta name="theme-color" content="#0F172A">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Walid Hassani - Consultant ERP & Chef de Projet Technique">
+  <meta property="og:description" content="Portfolio professionnel et CV interactif de Walid Hassani. Expert Dolibarr ERP, Flutter Web, IA Locale et automatisation des processus métier.">
+  <meta property="og:url" content="https://walid-portfolio-blue.vercel.app/">
+  <meta property="og:image" content="https://walid-portfolio-blue.vercel.app/profile.jpg">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Walid Hassani - Consultant ERP & Chef de Projet Technique">
+  <meta name="twitter:description" content="Portfolio professionnel et CV interactif de Walid Hassani. Expert Dolibarr ERP, Flutter Web et IA Locale.">
+  <meta name="twitter:image" content="https://walid-portfolio-blue.vercel.app/profile.jpg">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Walid Hassani">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <!-- Preload Arabic & Modern Fonts for Instant Language Switch -->
+  <!-- Optimized Non-Blocking Google Fonts Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap">
+  </noscript>
 
-  <title>Walid Hassani - Consultant ERP & Chef de Projet Technique</title>
   <link rel="manifest" href="manifest.json">
 
   <!-- Vercel Web Analytics -->
@@ -48,16 +57,121 @@
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b1120;
+      overflow-x: hidden;
+      color: #ffffff;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    #flutter-splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #13273e 0%, #0b1120 100%);
+      z-index: 99999;
+      transition: opacity 0.4s ease-out;
+      pointer-events: auto;
+    }
+    .splash-card {
+      text-align: center;
+      padding: 24px;
+      max-width: 90%;
+    }
+    .splash-avatar-box {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #00bfa5, #00e5ff);
+      box-shadow: 0 0 24px rgba(0, 229, 255, 0.45);
+    }
+    .splash-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .splash-title {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .splash-subtitle {
+      margin: 0 0 24px;
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .splash-spinner {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto;
+      border: 3px solid rgba(0, 191, 165, 0.2);
+      border-top-color: #00e5ff;
+      border-radius: 50%;
+      animation: splash-spin 0.8s linear infinite;
+    }
+    @keyframes splash-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <!-- Semantic Instant Splash Loader (Guarantees Instant FCP & LCP for PageSpeed) -->
+  <div id="flutter-splash">
+    <div class="splash-card">
+      <div class="splash-avatar-box">
+        <img src="profile.jpg" alt="Walid Hassani" width="110" height="110" class="splash-avatar" fetchpriority="high">
+      </div>
+      <h1 class="splash-title">WALID HASSANI</h1>
+      <p class="splash-subtitle">Consultant ERP &amp; Chef de Projet Technique</p>
+      <div class="splash-spinner"></div>
+    </div>
+  </div>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
+  <script>
+    function removeSplash() {
+      var splash = document.getElementById('flutter-splash');
+      if (splash && splash.style.opacity !== '0') {
+        splash.style.opacity = '0';
+        splash.style.pointerEvents = 'none';
+        setTimeout(function () {
+          if (splash.parentNode) splash.parentNode.removeChild(splash);
+        }, 400);
+      }
+    }
+
+    // Dismiss splash when Flutter fires first frame
+    window.addEventListener('flutter-first-frame', removeSplash);
+
+    // Observer fallback: remove when Flutter canvas/glasspane mounts
+    var observer = new MutationObserver(function (mutations, obs) {
+      if (document.querySelector('flt-glass-pane') || document.querySelector('flutter-view')) {
+        setTimeout(removeSplash, 100);
+        obs.disconnect();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Safety timeout fallback
+    setTimeout(removeSplash, 6000);
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
