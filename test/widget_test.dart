@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:walid_portfolio/main.dart';
 
 void main() {
-  testWidgets('PortfolioApp renders correctly and verifies essential UI components', (WidgetTester tester) async {
+  testWidgets('PortfolioApp renders correctly and verifies essential UI components with intro', (WidgetTester tester) async {
     // Set a wide screen size for desktop simulation
     tester.view.physicalSize = const Size(1280, 800);
     tester.view.devicePixelRatio = 1.0;
@@ -16,7 +16,15 @@ void main() {
     await tester.pumpWidget(const PortfolioApp());
     await tester.pump();
 
-    // Verify Walid Hassani name is displayed
+    // Verify Intro overlay is visible with Passer button and WH monogram
+    expect(find.text('Passer'), findsOneWidget);
+    expect(find.text('WH'), findsOneWidget);
+
+    // Tap Passer to dismiss intro immediately
+    await tester.tap(find.text('Passer'));
+    await tester.pumpAndSettle();
+
+    // Verify Walid Hassani name is displayed in Hero section
     expect(find.text('WALID HASSANI'), findsOneWidget);
 
     // Verify language switcher buttons exist

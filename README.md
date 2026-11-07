@@ -10,6 +10,10 @@ Application Web moderne et réactive développée avec **Flutter Web**, présent
 
 ## 🌟 Fonctionnalités Principales
 
+- **✨ Intro Cinématique & Futuriste Interactive (Cyber-Intro)** :
+  - Animation d'ouverture immersive de 3,5 secondes avec logo néon `WH`, typographie dynamique, grille de particules et transition de sortie en fondu fluide.
+  - Bouton discret de saut rapide (*Passer / Skip*) pour un accès direct instantané.
+
 - **🌐 Support Multilingue Complet (FR / EN / AR)** :
   - Sélection instantanée entre le Français (par défaut), l'Anglais et l'Arabe.
   - Gestion automatique de la direction du texte (**RTL - Right To Left**) pour l'Arabe sans rechargement de page.

@@ -1,4 +1,5 @@
 import 'web_helper.dart' as web_helper;
+import 'intro_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
@@ -39,6 +40,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   VideoPlayerController? _videoController;
   MediaState _mediaState = MediaState.loading;
   String _currentLanguage = 'fr'; // 'fr' par défaut, 'en', 'ar'
+  bool _showIntro = true;
 
   // Dictionnaire complet de traductions pour le support multilingue
   final Map<String, Map<String, String>> _translations = {
@@ -582,7 +584,9 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
       child: Scaffold(
         backgroundColor: const Color(0xFFF8F9FA),
-        body: SingleChildScrollView(
+        body: Stack(
+          children: [
+            SingleChildScrollView(
           child: Column(
             children: [
               // 1. Section Héro (Présentation principale)
@@ -1208,8 +1212,20 @@ class _PortfolioHomeState extends State<PortfolioHome> {
             ],
           ),
         ),
-      ),
-    );
+        if (_showIntro)
+          IntroOverlay(
+            onFinished: () {
+              if (mounted) {
+                setState(() {
+                  _showIntro = false;
+                });
+              }
+            },
+          ),
+      ],
+    ),
+  ),
+);
   }
 
   // Widget pour afficher les cartes de statistiques
